@@ -10,13 +10,17 @@ Ensure you have the following installed:
 - `pip` (Python package installer)
 
 ### Setting Up the Environment
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/your-repo-name.git
    cd your-repo-name
 
-python -m venv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+2. **Create and activate a virtual environment**
+Create: python3 -m venv .venv
+Activate: source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+3. **Install necessary packages**
+pip install -r requirements.txt
 
 ### Run the project
 streamlit run src/app.py
