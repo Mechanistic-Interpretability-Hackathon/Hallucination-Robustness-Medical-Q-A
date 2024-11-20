@@ -11,7 +11,7 @@ Ensure you have the following installed:
 
 ### Setting Up the Environment
 1. **Clone the repository**
-   ```bash
+    ```bash
    git clone https://github.com/your-repo-name.git
    cd your-repo-name
 
@@ -19,15 +19,14 @@ Ensure you have the following installed:
     ```bash
     python3 -m venv .venv
 
-
 3. **Activate virtual environment**
     ```bash
     Mac: python3 -m venv .venv
     Windows: .venv\Scripts\activate
 
-3. **Install necessary packages**
-  ```bash
-  pip install -r requirements.txt
+4. **Install necessary packages**
+    ```bash
+    pip install -r requirements.txt
 
 ### Run the project
 streamlit run src/app.py
