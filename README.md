@@ -29,4 +29,5 @@ Ensure you have the following installed:
     pip install -r requirements.txt
 
 ### Run the project
-streamlit run src/app.py
+    ```bash
+    streamlit run src/app.py
