@@ -1,0 +1,149 @@
+[
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "render_navbar",
+        "importPath": "components.navbar",
+        "description": "components.navbar",
+        "isExtraImport": true,
+        "detail": "components.navbar",
+        "documentation": {}
+    },
+    {
+        "label": "render_footer",
+        "importPath": "components.footer",
+        "description": "components.footer",
+        "isExtraImport": true,
+        "detail": "components.footer",
+        "documentation": {}
+    },
+    {
+        "label": "render_feature_analysis",
+        "importPath": "components.feature_analysis",
+        "description": "components.feature_analysis",
+        "isExtraImport": true,
+        "detail": "components.feature_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "render_visualizations",
+        "importPath": "components.visualizations",
+        "description": "components.visualizations",
+        "isExtraImport": true,
+        "detail": "components.visualizations",
+        "documentation": {}
+    },
+    {
+        "label": "mock_responses",
+        "importPath": "utils.mock_data",
+        "description": "utils.mock_data",
+        "isExtraImport": true,
+        "detail": "utils.mock_data",
+        "documentation": {}
+    },
+    {
+        "label": "activated_features",
+        "importPath": "utils.mock_data",
+        "description": "utils.mock_data",
+        "isExtraImport": true,
+        "detail": "utils.mock_data",
+        "documentation": {}
+    },
+    {
+        "label": "render_feature_analysis",
+        "kind": 2,
+        "importPath": "src.components.feature_analysis",
+        "description": "src.components.feature_analysis",
+        "peekOfCode": "def render_feature_analysis(activated_features):\n    st.markdown(\"---\")\n    st.header(\"Feature Steering and Analysis\")\n    cols = st.columns([2, 3])  # Layout\n    with cols[0]:\n        st.subheader(\"Feature Steering\")\n        sliders = {}\n        for feature in activated_features:\n            sliders[feature] = st.slider(f\"Adjust {feature}:\", min_value=0.0, max_value=1.0, step=0.1, value=0.5)\n    with cols[1]:",
+        "detail": "src.components.feature_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "render_footer",
+        "kind": 2,
+        "importPath": "src.components.footer",
+        "description": "src.components.footer",
+        "peekOfCode": "def render_footer():\n    st.markdown(\n        \"\"\"\n        <style>\n        .full-width-footer {\n            position: fixed;\n            bottom: 0;\n            left: 0;\n            width: 100%;\n            background-color: #333333; /* Dark gray */",
+        "detail": "src.components.footer",
+        "documentation": {}
+    },
+    {
+        "label": "render_navbar",
+        "kind": 2,
+        "importPath": "src.components.navbar",
+        "description": "src.components.navbar",
+        "peekOfCode": "def render_navbar():\n    # st.sidebar.image(\"src/assets/Gradients Anatomy_logo1.webp\", use_container_width=True)\n    st.markdown(\n    \"\"\"\n    <style>\n    .sidebar .sidebar-content {\n        padding: 0;\n    }\n    .nav-link {\n        font-size: 16px;",
+        "detail": "src.components.navbar",
+        "documentation": {}
+    },
+    {
+        "label": "render_visualizations",
+        "kind": 2,
+        "importPath": "src.components.visualizations",
+        "description": "src.components.visualizations",
+        "peekOfCode": "def render_visualizations(activated_features):\n    st.markdown(\"---\")\n    st.header(\"Visualizations\")\n    cols = st.columns([1, 1])\n    with cols[0]:\n        st.subheader(\"Hallucination Probability\")\n        x = np.linspace(0, 1, 10)\n        y = np.sin(x)  # Example data\n        fig, ax = plt.subplots()\n        ax.plot(x, y)",
+        "detail": "src.components.visualizations",
+        "documentation": {}
+    },
+    {
+        "label": "mock_responses",
+        "kind": 5,
+        "importPath": "src.utils.mock_data",
+        "description": "src.utils.mock_data",
+        "peekOfCode": "mock_responses = {\n    \"What are the symptoms of diabetes?\": \"The common symptoms of diabetes include increased thirst, frequent urination, extreme fatigue, and blurry vision.\",\n    \"How to treat high blood pressure?\": \"High blood pressure can be managed with lifestyle changes such as reducing salt intake, regular exercise, and medications like ACE inhibitors.\",\n    \"What are common causes of fatigue?\": \"Common causes of fatigue include stress, poor sleep quality, anemia, and chronic medical conditions like hypothyroidism.\"\n}\nactivated_features = [\"Feature A\", \"Feature B\", \"Feature C\"]",
+        "detail": "src.utils.mock_data",
+        "documentation": {}
+    },
+    {
+        "label": "activated_features",
+        "kind": 5,
+        "importPath": "src.utils.mock_data",
+        "description": "src.utils.mock_data",
+        "peekOfCode": "activated_features = [\"Feature A\", \"Feature B\", \"Feature C\"]",
+        "detail": "src.utils.mock_data",
+        "documentation": {}
+    },
+    {
+        "label": "mock_responses_keys",
+        "kind": 5,
+        "importPath": "src.app",
+        "description": "src.app",
+        "peekOfCode": "mock_responses_keys = list(mock_responses.keys())\ncols = st.columns([3, 1])  \nwith cols[0]:\n    selected_question = st.selectbox(\"Select a predefined question:\", mock_responses_keys)\n    if st.button(\"Submit Query\"):\n        response = mock_responses.get(selected_question, \"I'm sorry, I don't have an answer for that.\")\n        st.session_state['response'] = response\n        st.write(st.session_state['response'])\nrender_feature_analysis(activated_features)\nrender_visualizations(activated_features)",
+        "detail": "src.app",
+        "documentation": {}
+    },
+    {
+        "label": "cols",
+        "kind": 5,
+        "importPath": "src.app",
+        "description": "src.app",
+        "peekOfCode": "cols = st.columns([3, 1])  \nwith cols[0]:\n    selected_question = st.selectbox(\"Select a predefined question:\", mock_responses_keys)\n    if st.button(\"Submit Query\"):\n        response = mock_responses.get(selected_question, \"I'm sorry, I don't have an answer for that.\")\n        st.session_state['response'] = response\n        st.write(st.session_state['response'])\nrender_feature_analysis(activated_features)\nrender_visualizations(activated_features)\nrender_footer()",
+        "detail": "src.app",
+        "documentation": {}
+    }
+]
