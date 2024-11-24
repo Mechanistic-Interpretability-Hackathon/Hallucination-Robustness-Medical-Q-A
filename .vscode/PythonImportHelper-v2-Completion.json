@@ -27,6 +27,40 @@
         "documentation": {}
     },
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "goodfire",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "goodfire",
+        "description": "goodfire",
+        "detail": "goodfire",
+        "documentation": {}
+    },
+    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -243,24 +277,6 @@
         "importPath": "logging",
         "description": "logging",
         "detail": "logging",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
-        "label": "goodfire",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "goodfire",
-        "description": "goodfire",
-        "detail": "goodfire",
         "documentation": {}
     },
     {
@@ -481,22 +497,6 @@
         "documentation": {}
     },
     {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
         "label": "render_navbar",
         "importPath": "components.navbar",
         "description": "components.navbar",
@@ -530,18 +530,26 @@
     },
     {
         "label": "mock_responses",
-        "importPath": "utils.mock_data",
-        "description": "utils.mock_data",
+        "importPath": "utils.utilities",
+        "description": "utils.utilities",
         "isExtraImport": true,
-        "detail": "utils.mock_data",
+        "detail": "utils.utilities",
         "documentation": {}
     },
     {
         "label": "activated_features",
-        "importPath": "utils.mock_data",
-        "description": "utils.mock_data",
+        "importPath": "utils.utilities",
+        "description": "utils.utilities",
         "isExtraImport": true,
-        "detail": "utils.mock_data",
+        "detail": "utils.utilities",
+        "documentation": {}
+    },
+    {
+        "label": "split_prompt",
+        "importPath": "utils.utilities",
+        "description": "utils.utilities",
+        "isExtraImport": true,
+        "detail": "utils.utilities",
         "documentation": {}
     },
     {
@@ -550,6 +558,22 @@
         "description": "med_llm_evaluation.data_handler",
         "isExtraImport": true,
         "detail": "med_llm_evaluation.data_handler",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "importPath": "config.config",
+        "description": "config.config",
+        "isExtraImport": true,
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "variant",
+        "importPath": "config.config",
+        "description": "config.config",
+        "isExtraImport": true,
+        "detail": "config.config",
         "documentation": {}
     },
     {
@@ -586,6 +610,33 @@
         "description": "src.components.visualizations",
         "peekOfCode": "def render_visualizations(activated_features):\n    st.markdown(\"---\")\n    st.header(\"Visualizations\")\n    cols = st.columns([1, 1])\n    with cols[0]:\n        st.subheader(\"Hallucination Probability\")\n        x = np.linspace(0, 1, 10)\n        y = np.sin(x)  # Example data\n        fig, ax = plt.subplots()\n        ax.plot(x, y)",
         "detail": "src.components.visualizations",
+        "documentation": {}
+    },
+    {
+        "label": "gf_api_key",
+        "kind": 5,
+        "importPath": "src.config.config",
+        "description": "src.config.config",
+        "peekOfCode": "gf_api_key = os.getenv('GOODFIRE_API_KEY')\nclient = goodfire.Client(gf_api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")",
+        "detail": "src.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "src.config.config",
+        "description": "src.config.config",
+        "peekOfCode": "client = goodfire.Client(gf_api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")",
+        "detail": "src.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "variant",
+        "kind": 5,
+        "importPath": "src.config.config",
+        "description": "src.config.config",
+        "peekOfCode": "variant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")",
+        "detail": "src.config.config",
         "documentation": {}
     },
     {
@@ -719,7 +770,7 @@
         "kind": 6,
         "importPath": "src.notebooks.hallucination_benchmark",
         "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "class GoodFireClient:\n    def __init__(self, api_key, variant, requests_per_minute=100):\n        self.client = goodfire.Client(api_key)\n        self.variant = variant\n        self.executor = RateLimitedExecutor(\n            max_workers=32,\n            requests_per_minute=requests_per_minute\n        )\n        # Initialize DataFrame with correct columns\n        self.results = pd.DataFrame(columns=['prompt', 'response', 'error', 'hallucinated'])",
+        "peekOfCode": "class GoodFireClient:\n    def __init__(self, api_key, variant, requests_per_minute=100):\n        self.client = goodfire.Client(api_key)\n        self.variant = variant\n        self.executor = RateLimitedExecutor(\n            max_workers=32,\n            requests_per_minute=requests_per_minute\n        )\n        # Initialize DataFrame with correct columns\n        self.results = pd.DataFrame(columns=['id', 'prompt', 'question', 'options', 'correct_index', 'response', 'hallucinated', 'error'])",
         "detail": "src.notebooks.hallucination_benchmark",
         "documentation": {}
     },
@@ -737,7 +788,7 @@
         "kind": 2,
         "importPath": "src.notebooks.hallucination_benchmark",
         "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "def main():\n    # Load dataset\n    dataset_name = \"FCT\"\n    fct_ds = PromptDataset(dataset_name=dataset_name, prompt_template_fn=lambda x: x)\n    # Sample the first 10000 rows\n    sampled_fct_ds = fct_ds[500:5000]\n    # Initialize GoodFire client\n    variant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\n    client = GoodFireClient(\n        api_key=GOODFIRE_API_KEY,",
+        "peekOfCode": "def main():\n    # Load dataset\n    dataset_name = \"FCT\"\n    base_model_name = \"meta-llama/Meta-Llama-3-8B-Instruct\"\n    rate_limit = 99  # Requests per minute\n    fct_ds = PromptDataset(dataset_name=dataset_name, prompt_template_fn=lambda x: x)\n    # Sample the first 10000 rows\n    sampled_fct_ds = fct_ds[:10000]\n    # Initialize GoodFire client\n    variant = goodfire.Variant(base_model_name)",
         "detail": "src.notebooks.hallucination_benchmark",
         "documentation": {}
     },
@@ -751,21 +802,30 @@
         "documentation": {}
     },
     {
+        "label": "split_prompt",
+        "kind": 2,
+        "importPath": "src.utils.utilities",
+        "description": "src.utils.utilities",
+        "peekOfCode": "def split_prompt(prompts):\n  system_prompt = ''\n  user_prompts = [] \n  for prompt in prompts:\n    split_index = prompt.find('[0,1,2,3].') + len('[0,1,2,3].')\n    system_prompt = prompt[:split_index].strip()\n    user_prompt = prompt[split_index:].strip()\n    user_prompts.append(user_prompt)\n  return system_prompt, user_prompts\nmock_responses = {",
+        "detail": "src.utils.utilities",
+        "documentation": {}
+    },
+    {
         "label": "mock_responses",
         "kind": 5,
-        "importPath": "src.utils.mock_data",
-        "description": "src.utils.mock_data",
+        "importPath": "src.utils.utilities",
+        "description": "src.utils.utilities",
         "peekOfCode": "mock_responses = {\n    \"What are the symptoms of diabetes?\": \"The common symptoms of diabetes include increased thirst, frequent urination, extreme fatigue, and blurry vision.\",\n    \"How to treat high blood pressure?\": \"High blood pressure can be managed with lifestyle changes such as reducing salt intake, regular exercise, and medications like ACE inhibitors.\",\n    \"What are common causes of fatigue?\": \"Common causes of fatigue include stress, poor sleep quality, anemia, and chronic medical conditions like hypothyroidism.\"\n}\nactivated_features = [\"Feature A\", \"Feature B\", \"Feature C\"]",
-        "detail": "src.utils.mock_data",
+        "detail": "src.utils.utilities",
         "documentation": {}
     },
     {
         "label": "activated_features",
         "kind": 5,
-        "importPath": "src.utils.mock_data",
-        "description": "src.utils.mock_data",
+        "importPath": "src.utils.utilities",
+        "description": "src.utils.utilities",
         "peekOfCode": "activated_features = [\"Feature A\", \"Feature B\", \"Feature C\"]",
-        "detail": "src.utils.mock_data",
+        "detail": "src.utils.utilities",
         "documentation": {}
     },
     {
@@ -773,43 +833,7 @@
         "kind": 5,
         "importPath": "src.app",
         "description": "src.app",
-        "peekOfCode": "logger = logging.getLogger(__name__)\nload_dotenv()\ngf_api_key = os.getenv('GOODFIRE_API_KEY')\nclient = goodfire.Client(gf_api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\nrender_navbar()\nst.title(\"Diagnostics Page\")\nst.markdown(\"Refine model outputs using feature steering and analyze response quality.\")\nst.markdown(\"---\")\nst.header(\"Model Inference\")",
-        "detail": "src.app",
-        "documentation": {}
-    },
-    {
-        "label": "gf_api_key",
-        "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
-        "peekOfCode": "gf_api_key = os.getenv('GOODFIRE_API_KEY')\nclient = goodfire.Client(gf_api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\nrender_navbar()\nst.title(\"Diagnostics Page\")\nst.markdown(\"Refine model outputs using feature steering and analyze response quality.\")\nst.markdown(\"---\")\nst.header(\"Model Inference\")\nmock_responses_keys = list(mock_responses.keys())\ndata_handler = DataHandler()",
-        "detail": "src.app",
-        "documentation": {}
-    },
-    {
-        "label": "client",
-        "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
-        "peekOfCode": "client = goodfire.Client(gf_api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\nrender_navbar()\nst.title(\"Diagnostics Page\")\nst.markdown(\"Refine model outputs using feature steering and analyze response quality.\")\nst.markdown(\"---\")\nst.header(\"Model Inference\")\nmock_responses_keys = list(mock_responses.keys())\ndata_handler = DataHandler()\nprompts, labels, subject_names = data_handler.load_data()",
-        "detail": "src.app",
-        "documentation": {}
-    },
-    {
-        "label": "variant",
-        "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
-        "peekOfCode": "variant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\nrender_navbar()\nst.title(\"Diagnostics Page\")\nst.markdown(\"Refine model outputs using feature steering and analyze response quality.\")\nst.markdown(\"---\")\nst.header(\"Model Inference\")\nmock_responses_keys = list(mock_responses.keys())\ndata_handler = DataHandler()\nprompts, labels, subject_names = data_handler.load_data()\nprompts_with_labels = dict(zip(prompts, labels))",
-        "detail": "src.app",
-        "documentation": {}
-    },
-    {
-        "label": "mock_responses_keys",
-        "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
-        "peekOfCode": "mock_responses_keys = list(mock_responses.keys())\ndata_handler = DataHandler()\nprompts, labels, subject_names = data_handler.load_data()\nprompts_with_labels = dict(zip(prompts, labels))\ncols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", prompts[:10])\n    ground_truth_label = prompts_with_labels[selected_prompt]\n    if st.button(\"Submit Query\"):\n        response_text = \"\"",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nrender_navbar()\nst.title(\"Diagnostics Page\")\nst.markdown(\"Refine model outputs using feature steering and analyze response quality.\")\nst.markdown(\"---\")\nst.header(\"Model Inference\")\ndata_handler = DataHandler()\nprompts, labels, subject_names = data_handler.load_data()\nprompts_with_labels = dict(zip(prompts, labels))\nsystem_prompt, user_prompts = split_prompt(prompts[:10])",
         "detail": "src.app",
         "documentation": {}
     },
@@ -818,7 +842,7 @@
         "kind": 5,
         "importPath": "src.app",
         "description": "src.app",
-        "peekOfCode": "data_handler = DataHandler()\nprompts, labels, subject_names = data_handler.load_data()\nprompts_with_labels = dict(zip(prompts, labels))\ncols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", prompts[:10])\n    ground_truth_label = prompts_with_labels[selected_prompt]\n    if st.button(\"Submit Query\"):\n        response_text = \"\"\n        try: ",
+        "peekOfCode": "data_handler = DataHandler()\nprompts, labels, subject_names = data_handler.load_data()\nprompts_with_labels = dict(zip(prompts, labels))\nsystem_prompt, user_prompts = split_prompt(prompts[:10])\ncols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", user_prompts)\n    selected_user_prompt = system_prompt + \"\\n\\n\" + selected_prompt\n    ground_truth_label = prompts_with_labels[selected_user_prompt]\n    if st.button(\"Submit Query\"):",
         "detail": "src.app",
         "documentation": {}
     },
@@ -827,7 +851,7 @@
         "kind": 5,
         "importPath": "src.app",
         "description": "src.app",
-        "peekOfCode": "prompts_with_labels = dict(zip(prompts, labels))\ncols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", prompts[:10])\n    ground_truth_label = prompts_with_labels[selected_prompt]\n    if st.button(\"Submit Query\"):\n        response_text = \"\"\n        try: \n           response = client.chat.completions.create(\n             messages=[{\"role\": 'user', \"content\": selected_prompt}],",
+        "peekOfCode": "prompts_with_labels = dict(zip(prompts, labels))\nsystem_prompt, user_prompts = split_prompt(prompts[:10])\ncols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", user_prompts)\n    selected_user_prompt = system_prompt + \"\\n\\n\" + selected_prompt\n    ground_truth_label = prompts_with_labels[selected_user_prompt]\n    if st.button(\"Submit Query\"):\n        response_text = \"\"\n        try: ",
         "detail": "src.app",
         "documentation": {}
     },
@@ -836,7 +860,7 @@
         "kind": 5,
         "importPath": "src.app",
         "description": "src.app",
-        "peekOfCode": "cols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", prompts[:10])\n    ground_truth_label = prompts_with_labels[selected_prompt]\n    if st.button(\"Submit Query\"):\n        response_text = \"\"\n        try: \n           response = client.chat.completions.create(\n             messages=[{\"role\": 'user', \"content\": selected_prompt}],\n             model = variant, ",
+        "peekOfCode": "cols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", user_prompts)\n    selected_user_prompt = system_prompt + \"\\n\\n\" + selected_prompt\n    ground_truth_label = prompts_with_labels[selected_user_prompt]\n    if st.button(\"Submit Query\"):\n        response_text = \"\"\n        try: \n           response = client.chat.completions.create(\n             messages=[{\"role\": 'user', \"content\": selected_user_prompt}],",
         "detail": "src.app",
         "documentation": {}
     }
