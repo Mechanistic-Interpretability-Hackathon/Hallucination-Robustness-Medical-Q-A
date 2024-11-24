@@ -1,5 +1,12 @@
-# Mechanistic Interpretability Hackathon Project
+# Gradients Analysis 
 
+Created by: 
+- Diego Sabajo: https://www.linkedin.com/in/diego-sabajo
+- Eitan Sprejer: https://www.linkedin.com/in/eitan-sprejer-574380204
+- Matias Zabaljauregui: https://www.linkedin.com/in/zabaljauregui
+- Oliver Morris: https://www.linkedin.com/in/olimoz
+
+## Overview
 This project explores **Mechanistic Interpretability** by leveraging the Goodfire SDK and Streamlit for building an interactive interface.
 
 ## Installation

@@ -288,14 +288,6 @@
         "documentation": {}
     },
     {
-        "label": "MedicalLLMEvaluator",
-        "importPath": "src.med_llm_evaluation.medical_evaluator",
-        "description": "src.med_llm_evaluation.medical_evaluator",
-        "isExtraImport": true,
-        "detail": "src.med_llm_evaluation.medical_evaluator",
-        "documentation": {}
-    },
-    {
         "label": "re",
         "kind": 6,
         "isExtraImport": true,
@@ -529,30 +521,6 @@
         "documentation": {}
     },
     {
-        "label": "mock_responses",
-        "importPath": "utils.utilities",
-        "description": "utils.utilities",
-        "isExtraImport": true,
-        "detail": "utils.utilities",
-        "documentation": {}
-    },
-    {
-        "label": "activated_features",
-        "importPath": "utils.utilities",
-        "description": "utils.utilities",
-        "isExtraImport": true,
-        "detail": "utils.utilities",
-        "documentation": {}
-    },
-    {
-        "label": "split_prompt",
-        "importPath": "utils.utilities",
-        "description": "utils.utilities",
-        "isExtraImport": true,
-        "detail": "utils.utilities",
-        "documentation": {}
-    },
-    {
         "label": "DataHandler",
         "importPath": "med_llm_evaluation.data_handler",
         "description": "med_llm_evaluation.data_handler",
@@ -574,6 +542,22 @@
         "description": "config.config",
         "isExtraImport": true,
         "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "split_prompt",
+        "importPath": "utils.utilities",
+        "description": "utils.utilities",
+        "isExtraImport": true,
+        "detail": "utils.utilities",
+        "documentation": {}
+    },
+    {
+        "label": "activated_features",
+        "importPath": "utils.utilities",
+        "description": "utils.utilities",
+        "isExtraImport": true,
+        "detail": "utils.utilities",
         "documentation": {}
     },
     {

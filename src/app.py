@@ -1,16 +1,12 @@
 import streamlit as st
-import os
-import goodfire
 import logging
 from components.navbar import render_navbar
 from components.footer import render_footer
 from components.feature_analysis import render_feature_analysis
 from components.visualizations import render_visualizations
-from utils.utilities import mock_responses, activated_features
 from med_llm_evaluation.data_handler import DataHandler
-from src.med_llm_evaluation.medical_evaluator import MedicalLLMEvaluator
 from config.config import client, variant
-from utils.utilities import split_prompt
+from utils.utilities import split_prompt, activated_features
 
 
 st.set_page_config(page_title="Explainable Diagnostic Assistant", layout="wide")
