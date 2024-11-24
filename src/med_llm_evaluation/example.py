@@ -53,3 +53,34 @@ print(results[['prompt', 'true_answer', 'predicted_answer', 'correct']].head())
 # Access statistical analysis results
 print("\nStatistical significance:", "Yes" if stats['better_than_random'] else "No")
 print(f"Effect size: {stats['effect_size']:.3f} ({stats['effect_size_interpretation']})")
+
+
+#### SUBJECTS AVAILABLE IN THE DATA ####
+#                     subject_name  count
+# 3                         Dental   2401
+# 19                       Surgery    803
+# 23                      medicine    684
+# 24                       nursery    681
+# 25                  pharmacology    679
+# 6       Gynaecology & Obstetrics    679
+# 26                    psychology    678
+# 22                     chemistry    674
+# 21                       biology    672
+# 20                       Unknown    646
+# 11                     Pathology    601
+# 7                       Medicine    577
+# 14                    Physiology    528
+# 13                  Pharmacology    521
+# 2                   Biochemistry    477
+# 1                        Anatomy    427
+# 12                    Pediatrics    358
+# 18  Social & Preventive Medicine    353
+# 8                   Microbiology    268
+# 9                  Ophthalmology    209
+# 5              Forensic Medicine    182
+# 16                     Radiology    174
+# 4                            ENT    117
+# 0                    Anaesthesia     87
+# 17                          Skin     69
+# 15                    Psychiatry     20
+# 10                  Orthopaedics     18
