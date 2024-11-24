@@ -27,6 +27,476 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "ast",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ast",
+        "description": "ast",
+        "detail": "ast",
+        "documentation": {}
+    },
+    {
+        "label": "literal_eval",
+        "importPath": "ast",
+        "description": "ast",
+        "isExtraImport": true,
+        "detail": "ast",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "load_dataset",
+        "importPath": "datasets",
+        "description": "datasets",
+        "isExtraImport": true,
+        "detail": "datasets",
+        "documentation": {}
+    },
+    {
+        "label": "load_dataset",
+        "importPath": "datasets",
+        "description": "datasets",
+        "isExtraImport": true,
+        "detail": "datasets",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "goodfire",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "goodfire",
+        "description": "goodfire",
+        "detail": "goodfire",
+        "documentation": {}
+    },
+    {
+        "label": "MedicalLLMEvaluator",
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "MedicalLLMEvaluator",
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "concurrent.futures",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "concurrent.futures",
+        "description": "concurrent.futures",
+        "detail": "concurrent.futures",
+        "documentation": {}
+    },
+    {
+        "label": "ThreadPoolExecutor",
+        "importPath": "concurrent.futures",
+        "description": "concurrent.futures",
+        "isExtraImport": true,
+        "detail": "concurrent.futures",
+        "documentation": {}
+    },
+    {
+        "label": "ThreadPoolExecutor",
+        "importPath": "concurrent.futures",
+        "description": "concurrent.futures",
+        "isExtraImport": true,
+        "detail": "concurrent.futures",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "accuracy_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "confusion_matrix",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "cohen_kappa_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "accuracy_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "confusion_matrix",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "cohen_kappa_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "DataHandler",
+        "importPath": "src.med_llm_evaluation.data_handler",
+        "description": "src.med_llm_evaluation.data_handler",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.data_handler",
+        "documentation": {}
+    },
+    {
+        "label": "LLMEvaluator",
+        "importPath": "src.med_llm_evaluation.llm_evaluator",
+        "description": "src.med_llm_evaluation.llm_evaluator",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.llm_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "StatisticalAnalyzer",
+        "importPath": "src.med_llm_evaluation.statistical_analyzer",
+        "description": "src.med_llm_evaluation.statistical_analyzer",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.statistical_analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "scipy.stats",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "scipy.stats",
+        "description": "scipy.stats",
+        "detail": "scipy.stats",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "wraps",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "PromptDataset",
+        "importPath": "src.medhalt.medhalt.models.utils",
+        "description": "src.medhalt.medhalt.models.utils",
+        "isExtraImport": true,
+        "detail": "src.medhalt.medhalt.models.utils",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "render_navbar",
         "importPath": "components.navbar",
         "description": "components.navbar",
@@ -75,6 +545,14 @@
         "documentation": {}
     },
     {
+        "label": "DataHandler",
+        "importPath": "med_llm_evaluation.data_handler",
+        "description": "med_llm_evaluation.data_handler",
+        "isExtraImport": true,
+        "detail": "med_llm_evaluation.data_handler",
+        "documentation": {}
+    },
+    {
         "label": "render_feature_analysis",
         "kind": 2,
         "importPath": "src.components.feature_analysis",
@@ -111,6 +589,168 @@
         "documentation": {}
     },
     {
+        "label": "DataHandler",
+        "kind": 6,
+        "importPath": "src.med_llm_evaluation.data_handler",
+        "description": "src.med_llm_evaluation.data_handler",
+        "peekOfCode": "class DataHandler:\n    \"\"\"Handles loading and preprocessing of medical evaluation data.\"\"\"\n    def __init__(self, cache_dir: str = \".cache/med_eval\"):\n        \"\"\"\n        Initialize DataHandler with cache directory.\n        Args:\n            cache_dir (str): Directory for caching downloaded data\n        \"\"\"\n        self.cache_dir = Path(cache_dir)\n        self.cache_dir.mkdir(parents=True, exist_ok=True)",
+        "detail": "src.med_llm_evaluation.data_handler",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.med_llm_evaluation.data_handler",
+        "description": "src.med_llm_evaluation.data_handler",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass DataHandler:\n    \"\"\"Handles loading and preprocessing of medical evaluation data.\"\"\"\n    def __init__(self, cache_dir: str = \".cache/med_eval\"):\n        \"\"\"\n        Initialize DataHandler with cache directory.\n        Args:\n            cache_dir (str): Directory for caching downloaded data\n        \"\"\"\n        self.cache_dir = Path(cache_dir)",
+        "detail": "src.med_llm_evaluation.data_handler",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.med_llm_evaluation.example",
+        "description": "src.med_llm_evaluation.example",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Get API key from environment variable\napi_key = os.getenv('GOODFIRE_API_KEY')\nif not api_key:\n    raise ValueError(\"Please set the GOODFIRE_API_KEY environment variable\")\n# Initialize Goodfire client\nclient = goodfire.Client(api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\n# Initialize evaluator\nevaluator = MedicalLLMEvaluator(client, variant)",
+        "detail": "src.med_llm_evaluation.example",
+        "documentation": {}
+    },
+    {
+        "label": "api_key",
+        "kind": 5,
+        "importPath": "src.med_llm_evaluation.example",
+        "description": "src.med_llm_evaluation.example",
+        "peekOfCode": "api_key = os.getenv('GOODFIRE_API_KEY')\nif not api_key:\n    raise ValueError(\"Please set the GOODFIRE_API_KEY environment variable\")\n# Initialize Goodfire client\nclient = goodfire.Client(api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\n# Initialize evaluator\nevaluator = MedicalLLMEvaluator(client, variant)\n# Run evaluation\naccuracy, kappa, results, stats = evaluator.run_evaluation(",
+        "detail": "src.med_llm_evaluation.example",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "src.med_llm_evaluation.example",
+        "description": "src.med_llm_evaluation.example",
+        "peekOfCode": "client = goodfire.Client(api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\n# Initialize evaluator\nevaluator = MedicalLLMEvaluator(client, variant)\n# Run evaluation\naccuracy, kappa, results, stats = evaluator.run_evaluation(\n    k=30,              # number of samples\n    random_seed=42,    # for reproducibility\n    max_workers=10,    # concurrent API calls\n    subject_name=None  # optionally filter by subject",
+        "detail": "src.med_llm_evaluation.example",
+        "documentation": {}
+    },
+    {
+        "label": "variant",
+        "kind": 5,
+        "importPath": "src.med_llm_evaluation.example",
+        "description": "src.med_llm_evaluation.example",
+        "peekOfCode": "variant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\n# Initialize evaluator\nevaluator = MedicalLLMEvaluator(client, variant)\n# Run evaluation\naccuracy, kappa, results, stats = evaluator.run_evaluation(\n    k=30,              # number of samples\n    random_seed=42,    # for reproducibility\n    max_workers=10,    # concurrent API calls\n    subject_name=None  # optionally filter by subject\n)",
+        "detail": "src.med_llm_evaluation.example",
+        "documentation": {}
+    },
+    {
+        "label": "evaluator",
+        "kind": 5,
+        "importPath": "src.med_llm_evaluation.example",
+        "description": "src.med_llm_evaluation.example",
+        "peekOfCode": "evaluator = MedicalLLMEvaluator(client, variant)\n# Run evaluation\naccuracy, kappa, results, stats = evaluator.run_evaluation(\n    k=30,              # number of samples\n    random_seed=42,    # for reproducibility\n    max_workers=10,    # concurrent API calls\n    subject_name=None  # optionally filter by subject\n)\n# Results are already logged by the evaluator\n# You can also access them programmatically:",
+        "detail": "src.med_llm_evaluation.example",
+        "documentation": {}
+    },
+    {
+        "label": "LLMEvaluator",
+        "kind": 6,
+        "importPath": "src.med_llm_evaluation.llm_evaluator",
+        "description": "src.med_llm_evaluation.llm_evaluator",
+        "peekOfCode": "class LLMEvaluator:\n    \"\"\"Handles evaluation of LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant):\n        \"\"\"\n        Initialize evaluator with API client and variant.\n        Args:\n            client: The API client instance\n            variant: The model variant to use\n        \"\"\"\n        self.variant = variant",
+        "detail": "src.med_llm_evaluation.llm_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.med_llm_evaluation.llm_evaluator",
+        "description": "src.med_llm_evaluation.llm_evaluator",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass LLMEvaluator:\n    \"\"\"Handles evaluation of LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant):\n        \"\"\"\n        Initialize evaluator with API client and variant.\n        Args:\n            client: The API client instance\n            variant: The model variant to use\n        \"\"\"",
+        "detail": "src.med_llm_evaluation.llm_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "MedicalLLMEvaluator",
+        "kind": 6,
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "peekOfCode": "class MedicalLLMEvaluator:\n    \"\"\"Main interface for evaluating LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant, cache_dir: str = \".cache/med_eval\"):\n        \"\"\"\n        Initialize the medical LLM evaluator.\n        Args:\n            client: The API client instance\n            variant: The model variant to use\n            cache_dir (str): Directory for caching downloaded data\n        \"\"\"",
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass MedicalLLMEvaluator:\n    \"\"\"Main interface for evaluating LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant, cache_dir: str = \".cache/med_eval\"):\n        \"\"\"\n        Initialize the medical LLM evaluator.\n        Args:\n            client: The API client instance\n            variant: The model variant to use\n            cache_dir (str): Directory for caching downloaded data",
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "StatisticalAnalyzer",
+        "kind": 6,
+        "importPath": "src.med_llm_evaluation.statistical_analyzer",
+        "description": "src.med_llm_evaluation.statistical_analyzer",
+        "peekOfCode": "class StatisticalAnalyzer:\n    \"\"\"Handles statistical analysis of model performance.\"\"\"\n    @staticmethod\n    def analyze(y_true: List[int], \n                y_pred: List[int], \n                alpha: float = 0.05) -> Dict:\n        \"\"\"\n        Analyze if model performance is significantly better than random.\n        Args:\n            y_true (List[int]): True labels",
+        "detail": "src.med_llm_evaluation.statistical_analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.med_llm_evaluation.utils",
+        "description": "src.med_llm_evaluation.utils",
+        "peekOfCode": "logger = logging.getLogger(__name__)",
+        "detail": "src.med_llm_evaluation.utils",
+        "documentation": {}
+    },
+    {
+        "label": "RateLimitedExecutor",
+        "kind": 6,
+        "importPath": "src.notebooks.hallucination_benchmark",
+        "description": "src.notebooks.hallucination_benchmark",
+        "peekOfCode": "class RateLimitedExecutor:\n    \"\"\"\n    Thread pool executor with rate limiting capabilities.\n    \"\"\"\n    def __init__(self, max_workers=32, requests_per_minute=100):\n        self.max_workers = max_workers\n        self.min_interval = 60.0 / requests_per_minute\n        self.last_request_time = time.time()\n        self.lock = threading.Lock()\n    def wait_for_rate_limit(self):",
+        "detail": "src.notebooks.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "GoodFireClient",
+        "kind": 6,
+        "importPath": "src.notebooks.hallucination_benchmark",
+        "description": "src.notebooks.hallucination_benchmark",
+        "peekOfCode": "class GoodFireClient:\n    def __init__(self, api_key, variant, requests_per_minute=100):\n        self.client = goodfire.Client(api_key)\n        self.variant = variant\n        self.executor = RateLimitedExecutor(\n            max_workers=32,\n            requests_per_minute=requests_per_minute\n        )\n        # Initialize DataFrame with correct columns\n        self.results = pd.DataFrame(columns=['prompt', 'response', 'error', 'hallucinated'])",
+        "detail": "src.notebooks.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "exponential_backoff",
+        "kind": 2,
+        "importPath": "src.notebooks.hallucination_benchmark",
+        "description": "src.notebooks.hallucination_benchmark",
+        "peekOfCode": "def exponential_backoff(max_retries=5, initial_wait=1, max_wait=60):\n    \"\"\"\n    Decorator that implements exponential backoff for rate-limited functions.\n    Args:\n        max_retries (int): Maximum number of retry attempts\n        initial_wait (float): Initial wait time in seconds\n        max_wait (float): Maximum wait time in seconds\n    \"\"\"\n    def decorator(func):\n        @wraps(func)",
+        "detail": "src.notebooks.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "src.notebooks.hallucination_benchmark",
+        "description": "src.notebooks.hallucination_benchmark",
+        "peekOfCode": "def main():\n    # Load dataset\n    dataset_name = \"FCT\"\n    fct_ds = PromptDataset(dataset_name=dataset_name, prompt_template_fn=lambda x: x)\n    # Sample the first 10000 rows\n    sampled_fct_ds = fct_ds[500:5000]\n    # Initialize GoodFire client\n    variant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\n    client = GoodFireClient(\n        api_key=GOODFIRE_API_KEY,",
+        "detail": "src.notebooks.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "GOODFIRE_API_KEY",
+        "kind": 5,
+        "importPath": "src.notebooks.hallucination_benchmark",
+        "description": "src.notebooks.hallucination_benchmark",
+        "peekOfCode": "GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')\ndef exponential_backoff(max_retries=5, initial_wait=1, max_wait=60):\n    \"\"\"\n    Decorator that implements exponential backoff for rate-limited functions.\n    Args:\n        max_retries (int): Maximum number of retry attempts\n        initial_wait (float): Initial wait time in seconds\n        max_wait (float): Maximum wait time in seconds\n    \"\"\"\n    def decorator(func):",
+        "detail": "src.notebooks.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
         "label": "mock_responses",
         "kind": 5,
         "importPath": "src.utils.mock_data",
@@ -129,11 +769,65 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.app",
+        "description": "src.app",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nload_dotenv()\ngf_api_key = os.getenv('GOODFIRE_API_KEY')\nclient = goodfire.Client(gf_api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\nrender_navbar()\nst.title(\"Diagnostics Page\")\nst.markdown(\"Refine model outputs using feature steering and analyze response quality.\")\nst.markdown(\"---\")\nst.header(\"Model Inference\")",
+        "detail": "src.app",
+        "documentation": {}
+    },
+    {
+        "label": "gf_api_key",
+        "kind": 5,
+        "importPath": "src.app",
+        "description": "src.app",
+        "peekOfCode": "gf_api_key = os.getenv('GOODFIRE_API_KEY')\nclient = goodfire.Client(gf_api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\nrender_navbar()\nst.title(\"Diagnostics Page\")\nst.markdown(\"Refine model outputs using feature steering and analyze response quality.\")\nst.markdown(\"---\")\nst.header(\"Model Inference\")\nmock_responses_keys = list(mock_responses.keys())\ndata_handler = DataHandler()",
+        "detail": "src.app",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "src.app",
+        "description": "src.app",
+        "peekOfCode": "client = goodfire.Client(gf_api_key)\nvariant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\nrender_navbar()\nst.title(\"Diagnostics Page\")\nst.markdown(\"Refine model outputs using feature steering and analyze response quality.\")\nst.markdown(\"---\")\nst.header(\"Model Inference\")\nmock_responses_keys = list(mock_responses.keys())\ndata_handler = DataHandler()\nprompts, labels, subject_names = data_handler.load_data()",
+        "detail": "src.app",
+        "documentation": {}
+    },
+    {
+        "label": "variant",
+        "kind": 5,
+        "importPath": "src.app",
+        "description": "src.app",
+        "peekOfCode": "variant = goodfire.Variant(\"meta-llama/Meta-Llama-3-8B-Instruct\")\nrender_navbar()\nst.title(\"Diagnostics Page\")\nst.markdown(\"Refine model outputs using feature steering and analyze response quality.\")\nst.markdown(\"---\")\nst.header(\"Model Inference\")\nmock_responses_keys = list(mock_responses.keys())\ndata_handler = DataHandler()\nprompts, labels, subject_names = data_handler.load_data()\nprompts_with_labels = dict(zip(prompts, labels))",
+        "detail": "src.app",
+        "documentation": {}
+    },
+    {
         "label": "mock_responses_keys",
         "kind": 5,
         "importPath": "src.app",
         "description": "src.app",
-        "peekOfCode": "mock_responses_keys = list(mock_responses.keys())\ncols = st.columns([3, 1])  \nwith cols[0]:\n    selected_question = st.selectbox(\"Select a predefined question:\", mock_responses_keys)\n    if st.button(\"Submit Query\"):\n        response = mock_responses.get(selected_question, \"I'm sorry, I don't have an answer for that.\")\n        st.session_state['response'] = response\n        st.write(st.session_state['response'])\nrender_feature_analysis(activated_features)\nrender_visualizations(activated_features)",
+        "peekOfCode": "mock_responses_keys = list(mock_responses.keys())\ndata_handler = DataHandler()\nprompts, labels, subject_names = data_handler.load_data()\nprompts_with_labels = dict(zip(prompts, labels))\ncols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", prompts[:10])\n    ground_truth_label = prompts_with_labels[selected_prompt]\n    if st.button(\"Submit Query\"):\n        response_text = \"\"",
+        "detail": "src.app",
+        "documentation": {}
+    },
+    {
+        "label": "data_handler",
+        "kind": 5,
+        "importPath": "src.app",
+        "description": "src.app",
+        "peekOfCode": "data_handler = DataHandler()\nprompts, labels, subject_names = data_handler.load_data()\nprompts_with_labels = dict(zip(prompts, labels))\ncols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", prompts[:10])\n    ground_truth_label = prompts_with_labels[selected_prompt]\n    if st.button(\"Submit Query\"):\n        response_text = \"\"\n        try: ",
+        "detail": "src.app",
+        "documentation": {}
+    },
+    {
+        "label": "prompts_with_labels",
+        "kind": 5,
+        "importPath": "src.app",
+        "description": "src.app",
+        "peekOfCode": "prompts_with_labels = dict(zip(prompts, labels))\ncols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", prompts[:10])\n    ground_truth_label = prompts_with_labels[selected_prompt]\n    if st.button(\"Submit Query\"):\n        response_text = \"\"\n        try: \n           response = client.chat.completions.create(\n             messages=[{\"role\": 'user', \"content\": selected_prompt}],",
         "detail": "src.app",
         "documentation": {}
     },
@@ -142,7 +836,7 @@
         "kind": 5,
         "importPath": "src.app",
         "description": "src.app",
-        "peekOfCode": "cols = st.columns([3, 1])  \nwith cols[0]:\n    selected_question = st.selectbox(\"Select a predefined question:\", mock_responses_keys)\n    if st.button(\"Submit Query\"):\n        response = mock_responses.get(selected_question, \"I'm sorry, I don't have an answer for that.\")\n        st.session_state['response'] = response\n        st.write(st.session_state['response'])\nrender_feature_analysis(activated_features)\nrender_visualizations(activated_features)\nrender_footer()",
+        "peekOfCode": "cols = st.columns([3, 1])  \nwith cols[0]:\n    selected_prompt = st.selectbox(\"Select a predefined question:\", prompts[:10])\n    ground_truth_label = prompts_with_labels[selected_prompt]\n    if st.button(\"Submit Query\"):\n        response_text = \"\"\n        try: \n           response = client.chat.completions.create(\n             messages=[{\"role\": 'user', \"content\": selected_prompt}],\n             model = variant, ",
         "detail": "src.app",
         "documentation": {}
     }
