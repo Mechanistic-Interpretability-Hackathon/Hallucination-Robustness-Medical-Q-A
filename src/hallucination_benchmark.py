@@ -77,7 +77,7 @@ class GoodFireClient:
             requests_per_minute=requests_per_minute
         )
         # Initialize DataFrame with correct columns
-        self.results = pd.DataFrame(columns=['prompt', 'response', 'error', 'hallucinated'])
+        self.results = pd.DataFrame(columns=['id', 'prompt', 'question', 'options', 'correct_index', 'response', 'hallucinated', 'error'])
 
     @exponential_backoff(max_retries=5, initial_wait=1, max_wait=60)
     def generate_variant_response(self, prompt):
@@ -125,24 +125,28 @@ class GoodFireClient:
         """
         with futures.ThreadPoolExecutor(max_workers=self.executor.max_workers) as executor:
             # Submit all tasks to the executor
-            future_to_prompt = {
-                executor.submit(self.generate_variant_response, row['prompt']): row['prompt']
+            future_to_datapoint = {
+                executor.submit(self.generate_variant_response, row['prompt']): row
                 for row in dataset
             }
             
             # Process results as they complete
             for future in tqdm.tqdm(
-                futures.as_completed(future_to_prompt), 
-                total=len(future_to_prompt)
+                futures.as_completed(future_to_datapoint), 
+                total=len(future_to_datapoint)
             ):
-                prompt = future_to_prompt[future]
+                datapoint = future_to_datapoint[future]
                 try:
                     result = future.result()
                     hallucinated = self.process_response_for_hallucination(result)
                     
                     # Create a new row for the DataFrame
                     new_row = pd.DataFrame([{
-                        'prompt': prompt,
+                        'id': datapoint['id'],
+                        'prompt': datapoint['prompt'],
+                        'question': datapoint['question'],
+                        'options': datapoint['options'],
+                        'correct_index': datapoint['correct_index'],
                         'response': result,
                         'error': None,
                         'hallucinated': hallucinated
@@ -155,7 +159,11 @@ class GoodFireClient:
                     print(f"Error processing prompt: {str(e)}")
                     # Add error case to DataFrame
                     new_row = pd.DataFrame([{
-                        'prompt': prompt,
+                        'id': datapoint['id'],
+                        'prompt': datapoint['prompt'],
+                        'question': datapoint['question'],
+                        'options': datapoint['options'],
+                        'correct_index': datapoint['correct_index'],
                         'response': None,
                         'error': str(e),
                         'hallucinated': None
@@ -168,21 +176,27 @@ class GoodFireClient:
 def main():
     # Load dataset
     dataset_name = "FCT"
+    base_model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+    rate_limit = 99  # Requests per minute
     fct_ds = PromptDataset(dataset_name=dataset_name, prompt_template_fn=lambda x: x)
     # Sample the first 10000 rows
-    sampled_fct_ds = fct_ds[500:5000]
+    sampled_fct_ds = fct_ds[:10000]
 
     # Initialize GoodFire client
-    variant = goodfire.Variant("meta-llama/Meta-Llama-3-8B-Instruct")
-
+    variant = goodfire.Variant(base_model_name)
     client = GoodFireClient(
         api_key=GOODFIRE_API_KEY,
         variant=variant,
-        requests_per_minute=99
+        requests_per_minute=rate_limit
     )
 
+    # Run generation and hallucination check
     responses = client.get_responses_for_dataset(sampled_fct_ds)
     responses.to_csv('fct_responses.tsv', index=False, sep='\t')
+
+    # Save 'cleaned out' version of the dataset, removing rows with errors on the generation or hallucination check
+    responses_cleaned = responses.dropna(subset=['response', 'hallucinated'])
+    responses_cleaned.to_csv('fct_responses_clean.tsv', index=False, sep='\t')
 
 if __name__ == "__main__":
     main()
