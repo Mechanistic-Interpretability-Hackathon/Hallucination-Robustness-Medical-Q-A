@@ -70,6 +70,7 @@ streamlit==1.40.1
 tenacity==9.0.0
 tensorflow-datasets==4.9.7
 toml==0.10.2
+torch
 tornado==6.4.1
 traitlets==5.14.3
 typing_extensions==4.12.2
