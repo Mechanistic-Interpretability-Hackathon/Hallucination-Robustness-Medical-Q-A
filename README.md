@@ -12,8 +12,9 @@ Ensure you have the following installed:
 ### Setting Up the Environment
 1. **Clone the repository**
     ```bash
-   git clone https://github.com/your-repo-name.git
-   cd your-repo-name
+   cd project-folder
+   git clone https://github.com/Mechanistic-Interpretability-Hackathon/Mech-Interp.git
+   cd Mech-Interp
 
 2. **Create virtual environment**
     ```bash
