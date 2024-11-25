@@ -3,10 +3,12 @@ import logging
 from components.navbar import render_navbar
 from components.footer import render_footer
 from components.feature_analysis import render_feature_analysis
+from components.hallucination_detector import render_hallucination_detector
 from components.visualizations import render_visualizations
 from med_llm_evaluation.data_handler import DataHandler
 from config.config import client, variant
 from utils.utilities import split_prompt, activated_features
+
 
 
 st.set_page_config(page_title="Explainable Diagnostic Assistant", layout="wide")
@@ -52,6 +54,7 @@ with cols[0]:
             st.write("**Model Response:**", st.session_state['response'])
             st.write("**Ground truth**:", st.session_state['ground_truth_label'])
             st.write(f'**Model prediction**: Incorrect' if int(response_text) != int(ground_truth_label) else  '**Model Predicted**: Correct')
+            render_hallucination_detector(selected_user_prompt)
         else:
             st.error("No response received from the model. Please try again.")
 

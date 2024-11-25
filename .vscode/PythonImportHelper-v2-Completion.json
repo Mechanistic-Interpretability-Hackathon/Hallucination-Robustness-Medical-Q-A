@@ -1,5 +1,257 @@
 [
     {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "goodfire",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "goodfire",
+        "description": "goodfire",
+        "detail": "goodfire",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "sklearn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sklearn",
+        "description": "sklearn",
+        "detail": "sklearn",
+        "documentation": {}
+    },
+    {
         "label": "streamlit",
         "kind": 6,
         "isExtraImport": true,
@@ -18,15 +270,6 @@
         "documentation": {}
     },
     {
-        "label": "numpy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
-        "documentation": {}
-    },
-    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -36,11 +279,35 @@
         "documentation": {}
     },
     {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
+        "label": "HallucinationClassifier",
+        "importPath": "src.classifier.hallucination_classifier",
+        "description": "src.classifier.hallucination_classifier",
         "isExtraImport": true,
-        "detail": "dotenv",
+        "detail": "src.classifier.hallucination_classifier",
+        "documentation": {}
+    },
+    {
+        "label": "gf_api_key",
+        "importPath": "config.config",
+        "description": "config.config",
+        "isExtraImport": true,
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "importPath": "config.config",
+        "description": "config.config",
+        "isExtraImport": true,
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "variant",
+        "importPath": "config.config",
+        "description": "config.config",
+        "isExtraImport": true,
+        "detail": "config.config",
         "documentation": {}
     },
     {
@@ -52,12 +319,11 @@
         "documentation": {}
     },
     {
-        "label": "goodfire",
-        "kind": 6,
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
         "isExtraImport": true,
-        "importPath": "goodfire",
-        "description": "goodfire",
-        "detail": "goodfire",
+        "detail": "dotenv",
         "documentation": {}
     },
     {
@@ -100,158 +366,6 @@
         "description": "ast",
         "isExtraImport": true,
         "detail": "ast",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
         "documentation": {}
     },
     {
@@ -513,6 +627,14 @@
         "documentation": {}
     },
     {
+        "label": "render_hallucination_detector",
+        "importPath": "components.hallucination_detector",
+        "description": "components.hallucination_detector",
+        "isExtraImport": true,
+        "detail": "components.hallucination_detector",
+        "documentation": {}
+    },
+    {
         "label": "render_visualizations",
         "importPath": "components.visualizations",
         "description": "components.visualizations",
@@ -526,22 +648,6 @@
         "description": "med_llm_evaluation.data_handler",
         "isExtraImport": true,
         "detail": "med_llm_evaluation.data_handler",
-        "documentation": {}
-    },
-    {
-        "label": "client",
-        "importPath": "config.config",
-        "description": "config.config",
-        "isExtraImport": true,
-        "detail": "config.config",
-        "documentation": {}
-    },
-    {
-        "label": "variant",
-        "importPath": "config.config",
-        "description": "config.config",
-        "isExtraImport": true,
-        "detail": "config.config",
         "documentation": {}
     },
     {
@@ -561,6 +667,24 @@
         "documentation": {}
     },
     {
+        "label": "HallucinationClassifier",
+        "kind": 6,
+        "importPath": "src.classifier.hallucination_classifier",
+        "description": "src.classifier.hallucination_classifier",
+        "peekOfCode": "class HallucinationClassifier:\n    def __init__(self, model_path: str, api_key: str):\n        \"\"\"\n        Initialize the hallucination classifier with a saved model and features.\n        Args:\n            model_path: Path to the saved pickle file containing both the model and features\n            api_key: Goodfire API key for accessing the service\n        \"\"\"\n        # Load the model and features\n        with open(model_path, 'rb') as f:",
+        "detail": "src.classifier.hallucination_classifier",
+        "documentation": {}
+    },
+    {
+        "label": "SVMHallucinationClassifier",
+        "kind": 6,
+        "importPath": "src.classifier.hallucination_classifier_svm",
+        "description": "src.classifier.hallucination_classifier_svm",
+        "peekOfCode": "class SVMHallucinationClassifier:\n    def __init__(self, model_path: str, api_key: str):\n        \"\"\"\n        Initialize the hallucination classifier with a saved SVM model and features.\n        Args:\n            model_path: Path to the saved pickle file containing both the model and features\n            api_key: Goodfire API key for accessing the service\n        \"\"\"\n        # Load the model and features\n        with open(model_path, 'rb') as f:",
+        "detail": "src.classifier.hallucination_classifier_svm",
+        "documentation": {}
+    },
+    {
         "label": "render_feature_analysis",
         "kind": 2,
         "importPath": "src.components.feature_analysis",
@@ -576,6 +700,15 @@
         "description": "src.components.footer",
         "peekOfCode": "def render_footer():\n    st.markdown(\n        \"\"\"\n        <style>\n        .full-width-footer {\n            position: fixed;\n            bottom: 0;\n            left: 0;\n            width: 100%;\n            background-color: #333333; /* Dark gray */",
         "detail": "src.components.footer",
+        "documentation": {}
+    },
+    {
+        "label": "render_hallucination_detector",
+        "kind": 2,
+        "importPath": "src.components.hallucination_detector",
+        "description": "src.components.hallucination_detector",
+        "peekOfCode": "def render_hallucination_detector(prompt):\n  model_path = \"src/classifier/hallucination_classifier_svm.pkl\"\n  st.markdown('--')\n  st.header(\"Hallucination Detection\")\n  classifier = HallucinationClassifier(model_path=model_path, api_key=gf_api_key)\n  prediction, confidence = classifier.predict(prompt, debug=False)\n  result = \"Hallucinated\" if prediction == 1 else \"Truthful\"\n  st.success(f\"Prediction: {result}\") if result == \"Truthful\" else st.warning(f\"Prediction: {result}\")\n  st.info(f\"I am: {confidence * 100:.2f}% confident\")",
+        "detail": "src.components.hallucination_detector",
         "documentation": {}
     },
     {
