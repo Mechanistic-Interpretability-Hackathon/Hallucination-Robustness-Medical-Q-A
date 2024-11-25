@@ -402,6 +402,14 @@
         "documentation": {}
     },
     {
+        "label": "MedicalLLMEvaluator",
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
         "label": "re",
         "kind": 6,
         "isExtraImport": true,
@@ -887,7 +895,7 @@
         "kind": 6,
         "importPath": "src.notebooks.hallucination_benchmark",
         "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "class GoodFireClient:\n    def __init__(self, api_key, variant, requests_per_minute=100):\n        self.client = goodfire.Client(api_key)\n        self.variant = variant\n        self.executor = RateLimitedExecutor(\n            max_workers=32,\n            requests_per_minute=requests_per_minute\n        )\n        # Initialize DataFrame with correct columns\n        self.results = pd.DataFrame(columns=['id', 'prompt', 'question', 'options', 'correct_index', 'response', 'hallucinated', 'error'])",
+        "peekOfCode": "class GoodFireClient:\n    def __init__(self, api_key, variant, requests_per_minute=100):\n        self.client = goodfire.Client(api_key)\n        self.variant = variant\n        self.executor = RateLimitedExecutor(\n            max_workers=32,\n            requests_per_minute=requests_per_minute\n        )\n        # Initialize DataFrame with correct columns\n        self.results = pd.DataFrame(columns=['id', 'feature_activation', 'prompt', 'question', 'options', 'correct_index', 'response', 'hallucinated', 'error'])",
         "detail": "src.notebooks.hallucination_benchmark",
         "documentation": {}
     },
@@ -901,11 +909,20 @@
         "documentation": {}
     },
     {
+        "label": "get_hallucination_rate",
+        "kind": 2,
+        "importPath": "src.notebooks.hallucination_benchmark",
+        "description": "src.notebooks.hallucination_benchmark",
+        "peekOfCode": "def get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"\n    Calculate the hallucination rate for the results dataframe.\n    \"\"\"\n    # Plot the hallucination rate for each feature activation.\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate",
+        "detail": "src.notebooks.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
         "label": "main",
         "kind": 2,
         "importPath": "src.notebooks.hallucination_benchmark",
         "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "def main():\n    # Load dataset\n    dataset_name = \"FCT\"\n    base_model_name = \"meta-llama/Meta-Llama-3-8B-Instruct\"\n    rate_limit = 99  # Requests per minute\n    fct_ds = PromptDataset(dataset_name=dataset_name, prompt_template_fn=lambda x: x)\n    # Sample the first 10000 rows\n    sampled_fct_ds = fct_ds[:10000]\n    # Initialize GoodFire client\n    variant = goodfire.Variant(base_model_name)",
+        "peekOfCode": "def main():\n    # Load dataset\n    base_model_name = \"meta-llama/Meta-Llama-3-8B-Instruct\"\n    relevant_features = {\n        0: \"The model should not recommend technological or medical interventions\",\n        1: \"Medical imaging techniques and procedures\",\n        2: \"Medical case presentations with complex patient symptoms\"\n    }\n    # User parameters\n    selected_feature_index = 1",
         "detail": "src.notebooks.hallucination_benchmark",
         "documentation": {}
     },
@@ -914,7 +931,16 @@
         "kind": 5,
         "importPath": "src.notebooks.hallucination_benchmark",
         "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')\ndef exponential_backoff(max_retries=5, initial_wait=1, max_wait=60):\n    \"\"\"\n    Decorator that implements exponential backoff for rate-limited functions.\n    Args:\n        max_retries (int): Maximum number of retry attempts\n        initial_wait (float): Initial wait time in seconds\n        max_wait (float): Maximum wait time in seconds\n    \"\"\"\n    def decorator(func):",
+        "peekOfCode": "GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')\nRATE_LIMIT = 99\ndef exponential_backoff(max_retries=5, initial_wait=1, max_wait=60):\n    \"\"\"\n    Decorator that implements exponential backoff for rate-limited functions.\n    Args:\n        max_retries (int): Maximum number of retry attempts\n        initial_wait (float): Initial wait time in seconds\n        max_wait (float): Maximum wait time in seconds\n    \"\"\"",
+        "detail": "src.notebooks.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "RATE_LIMIT",
+        "kind": 5,
+        "importPath": "src.notebooks.hallucination_benchmark",
+        "description": "src.notebooks.hallucination_benchmark",
+        "peekOfCode": "RATE_LIMIT = 99\ndef exponential_backoff(max_retries=5, initial_wait=1, max_wait=60):\n    \"\"\"\n    Decorator that implements exponential backoff for rate-limited functions.\n    Args:\n        max_retries (int): Maximum number of retry attempts\n        initial_wait (float): Initial wait time in seconds\n        max_wait (float): Maximum wait time in seconds\n    \"\"\"\n    def decorator(func):",
         "detail": "src.notebooks.hallucination_benchmark",
         "documentation": {}
     },
