@@ -5,6 +5,7 @@ import threading
 import concurrent.futures as futures
 from functools import wraps
 import pandas as pd
+import numpy as np
 pd.set_option('display.max_colwidth', None)
 from ast import literal_eval
 import re
@@ -14,10 +15,11 @@ import sys
 sys.path.append('..')
 sys.path.append('medhalt')
 from src.medhalt.medhalt.models.utils import PromptDataset
+from src.med_llm_evaluation.medical_evaluator import MedicalLLMEvaluator
 from dotenv import load_dotenv
-
 load_dotenv()
 GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')
+RATE_LIMIT = 99
 
 def exponential_backoff(max_retries=5, initial_wait=1, max_wait=60):
     """
@@ -78,7 +80,15 @@ class GoodFireClient:
             requests_per_minute=requests_per_minute
         )
         # Initialize DataFrame with correct columns
-        self.results = pd.DataFrame(columns=['id', 'prompt', 'question', 'options', 'correct_index', 'response', 'hallucinated', 'error'])
+        self.results = pd.DataFrame(columns=['id', 'feature_activation', 'prompt', 'question', 'options', 'correct_index', 'response', 'hallucinated', 'error'])
+        self.feature_activation = 0
+
+    def set_feature_activation(self, feature_name, activation_value):
+        """Set feature activation for the variant"""
+        self.feature_activation = activation_value
+        self.variant.reset()
+        selected_feature = self.client.features.search(feature_name, top_k=1)[0][0]
+        self.variant.set(selected_feature, self.feature_activation, mode='pin')
 
     @exponential_backoff(max_retries=5, initial_wait=1, max_wait=60)
     def generate_variant_response(self, prompt):
@@ -107,7 +117,7 @@ class GoodFireClient:
                 # Option 2: Try regex if ast.literal_eval fails
                 pattern = r"['\"]is_answer_correct['\"]\s*:\s*['\"](\w+)['\"]"
                 match = re.search(pattern, response_string)
-                
+
                 if match:
                     decision = match.group(1).lower()
                     if decision not in ['yes', 'no']:
@@ -130,7 +140,8 @@ class GoodFireClient:
                 executor.submit(self.generate_variant_response, row['prompt']): row
                 for row in dataset
             }
-            
+            print(len(self.results))
+
             # Process results as they complete
             for future in tqdm.tqdm(
                 futures.as_completed(future_to_datapoint), 
@@ -140,10 +151,11 @@ class GoodFireClient:
                 try:
                     result = future.result()
                     hallucinated = self.process_response_for_hallucination(result)
-                    
+
                     # Create a new row for the DataFrame
                     new_row = pd.DataFrame([{
                         'id': datapoint['id'],
+                        'feature_activation': self.feature_activation,
                         'prompt': datapoint['prompt'],
                         'question': datapoint['question'],
                         'options': datapoint['options'],
@@ -152,15 +164,16 @@ class GoodFireClient:
                         'error': None,
                         'hallucinated': hallucinated
                     }])
-                    
+
                     # Concatenate the new row to the existing DataFrame
                     self.results = pd.concat([self.results, new_row], ignore_index=True)
-                    
+
                 except Exception as e:
                     print(f"Error processing prompt: {str(e)}")
                     # Add error case to DataFrame
                     new_row = pd.DataFrame([{
                         'id': datapoint['id'],
+                        'feature_activation': self.feature_activation,
                         'prompt': datapoint['prompt'],
                         'question': datapoint['question'],
                         'options': datapoint['options'],
@@ -170,34 +183,95 @@ class GoodFireClient:
                         'hallucinated': None
                     }])
                     self.results = pd.concat([self.results, new_row], ignore_index=True)
-            
+
             return self.results
+
+def get_hallucination_rate(df: pd.DataFrame):
+    """
+    Calculate the hallucination rate for the results dataframe.
+    """
+    # Plot the hallucination rate for each feature activation.
+    hallucination_rates = {}
+    for feature_activation in df['feature_activation'].unique():
+        feature_activation_df = df[df['feature_activation'] == feature_activation]
+        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())
+        hallucination_rates[feature_activation] = hallucination_rate
+    hallucination_rates_df = pd.DataFrame(hallucination_rates.items(), columns=['feature_activation', 'hallucination_rate'])
+
+    # Get the error bars
+    hallucination_value_counts = df[df['hallucinated'] == True]['feature_activation'].value_counts().sort_index()
+    # Assign Poisson errors to each hallucination count
+    poisson_errors = hallucination_value_counts.apply(lambda x: x**0.5)
+    total_counts = df['feature_activation'].value_counts().sort_index()
+    # Propagate the errors to the hallucination rate
+    error_bars = list(poisson_errors.values / total_counts.values)
+
+    # Do a scatter plot of the hallucination rate for each feature activation. Sorting the rows of the dataset in terms of the feature activation.
+    hallucination_rates_df = hallucination_rates_df.sort_values(by='feature_activation')
+    hallucination_rates = hallucination_rates_df['hallucination_rate'].to_list()
+
+    return hallucination_rates, error_bars
 
 
 def main():
     # Load dataset
-    dataset_name = "FCT"
     base_model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
-    rate_limit = 99  # Requests per minute
-    fct_ds = PromptDataset(dataset_name=dataset_name, prompt_template_fn=lambda x: x)
-    # Sample the first 10000 rows
-    sampled_fct_ds = fct_ds[:10000]
+
+    relevant_features = {
+        0: "The model should not recommend technological or medical interventions",
+        1: "Medical imaging techniques and procedures",
+        2: "Medical case presentations with complex patient symptoms"
+    }
+    # User parameters
+    selected_feature_index = 1
+    filename = f'feature_{selected_feature_index}_results'
+    min_activation, max_activation = -0.5, 0.5
+    feature_activation_steps = 8
+    n_examples = 200
+
+    selected_feature_name = relevant_features[selected_feature_index]
+    fct_ds = PromptDataset(dataset_name='FCT', prompt_template_fn=lambda x: x)
+    sampled_fct_ds = fct_ds[:n_examples]  # Sample the first n rows
 
     # Initialize GoodFire client
     variant = goodfire.Variant(base_model_name)
     client = GoodFireClient(
         api_key=GOODFIRE_API_KEY,
         variant=variant,
-        requests_per_minute=rate_limit
+        requests_per_minute=RATE_LIMIT
     )
+    if selected_feature_name:
+        medical_dataset_accuracy = []
+        for feature_activation in np.linspace(min_activation, max_activation, feature_activation_steps):
+            # Benchmark hallucination rate
+            client.set_feature_activation(selected_feature_name, feature_activation)
+            # Run generation and hallucination check
+            _ = client.get_responses_for_dataset(sampled_fct_ds)
 
-    # Run generation and hallucination check
-    responses = client.get_responses_for_dataset(sampled_fct_ds)
-    responses.to_csv('fct_responses.tsv', index=False, sep='\t')
+            # Benchmark general medical capabilities.
+            evaluator = MedicalLLMEvaluator(client.client, client.variant)
+            accuracy, _, _, _ = evaluator.run_evaluation(
+                k=100,             # number of samples
+                random_seed=42,    # for reproducibility
+                max_workers=32,    # concurrent API calls
+                subject_name=None  # optionally filter by subject
+            )
+            medical_dataset_accuracy.append(accuracy)
 
-    # Save 'cleaned out' version of the dataset, removing rows with errors on the generation or hallucination check
-    responses_cleaned = responses.dropna(subset=['response', 'hallucinated'])
-    responses_cleaned.to_csv('fct_responses_clean.tsv', index=False, sep='\t')
+        client.results.to_csv(f'data/{filename}.tsv', index=False, sep='\t')
+
+        # Save 'cleaned out' version of the dataset, removing rows with errors on the generation or hallucination check
+        results_cleaned = client.results.dropna(subset=['response', 'hallucinated'])
+        results_cleaned.to_csv(f'data/{filename}_clean.tsv', index=False, sep='\t')
+
+        hallucination_rates, error_bars = get_hallucination_rate(results_cleaned)
+        results_df = pd.DataFrame({
+            'feature_activation': np.linspace(min_activation, max_activation, feature_activation_steps),
+            'hallucination_rate': hallucination_rates,
+            'hallucination_rate_error': error_bars,
+            'accuracy': medical_dataset_accuracy
+        })
+        results_df.to_csv(f'data/feature_{selected_feature_index}_benchmark_results.tsv', index=False, sep='\t')
 
 if __name__ == "__main__":
     main()
