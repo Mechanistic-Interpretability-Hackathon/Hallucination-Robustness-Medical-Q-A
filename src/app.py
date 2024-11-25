@@ -10,7 +10,6 @@ from config.config import client, variant
 from utils.utilities import split_prompt, activated_features
 
 
-
 st.set_page_config(page_title="Explainable Diagnostic Assistant", layout="wide")
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
