@@ -200,9 +200,9 @@ def get_hallucination_rate(df: pd.DataFrame):
 
     # Get the error bars
     hallucination_value_counts = df[df['hallucinated'] == True]['feature_activation'].value_counts().sort_index()
+    total_counts = df['feature_activation'].value_counts().sort_index()
     # Assign Poisson errors to each hallucination count
     poisson_errors = hallucination_value_counts.apply(lambda x: x**0.5)
-    total_counts = df['feature_activation'].value_counts().sort_index()
     # Propagate the errors to the hallucination rate
     error_bars = list(poisson_errors.values / total_counts.values)
 
@@ -258,12 +258,14 @@ def main():
             )
             medical_dataset_accuracy.append(accuracy)
 
+        # Save the results to a TSV file
         client.results.to_csv(f'data/{filename}.tsv', index=False, sep='\t')
 
         # Save 'cleaned out' version of the dataset, removing rows with errors on the generation or hallucination check
         results_cleaned = client.results.dropna(subset=['response', 'hallucinated'])
         results_cleaned.to_csv(f'data/{filename}_clean.tsv', index=False, sep='\t')
 
+        # Calculate hallucination rates and save all the results into a TSV file
         hallucination_rates, error_bars = get_hallucination_rate(results_cleaned)
         results_df = pd.DataFrame({
             'feature_activation': np.linspace(min_activation, max_activation, feature_activation_steps),
