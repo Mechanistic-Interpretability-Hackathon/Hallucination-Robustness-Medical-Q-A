@@ -1,107 +1,100 @@
+import asyncio
 import tqdm
 import time
 import random
-import threading
-import concurrent.futures as futures
 from functools import wraps
 import pandas as pd
 import numpy as np
-pd.set_option('display.max_colwidth', None)
 from ast import literal_eval
 import re
 import goodfire
 import os
-import sys
-sys.path.append('..')
-sys.path.append('medhalt')
+import argparse
+from src.hallucination_llm_evaluation.utils import load_features
 from src.medhalt.medhalt.models.utils import PromptDataset
-from src.med_llm_evaluation.medical_evaluator import MedicalLLMEvaluator
+from src.med_llm_evaluation.medical_evaluator import AsyncMedicalLLMEvaluator
 from dotenv import load_dotenv
 load_dotenv()
+
 GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')
 RATE_LIMIT = 99
 
-def exponential_backoff(max_retries=5, initial_wait=1, max_wait=60):
-    """
-    Decorator that implements exponential backoff for rate-limited functions.
-    
-    Args:
-        max_retries (int): Maximum number of retry attempts
-        initial_wait (float): Initial wait time in seconds
-        max_wait (float): Maximum wait time in seconds
-    """
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            retries = 0
-            while retries <= max_retries:
-                try:
-                    return func(*args, **kwargs)
-                except Exception as e:
-                    if "rate limit" in str(e).lower() or retries < max_retries:
-                        wait_time = min(
-                            initial_wait * (2 ** retries) + random.uniform(0, 1),
-                            max_wait
-                        )
-                        time.sleep(wait_time)
-                        retries += 1
-                        if retries <= max_retries:
-                            continue
-                    raise e
-            return None
-        return wrapper
-    return decorator
+class AsyncRateLimiter:
+    """Async rate limiter using a semaphore and sliding window"""
+    def __init__(self, requests_per_minute: int):
+        self.semaphore = asyncio.Semaphore(requests_per_minute)
+        self.request_times = []
+        self.window_size = 60  # 1 minute window
+        self.requests_per_minute = requests_per_minute
+        self.lock = asyncio.Lock()
 
-class RateLimitedExecutor:
-    """
-    Thread pool executor with rate limiting capabilities.
-    """
-    def __init__(self, max_workers=32, requests_per_minute=100):
-        self.max_workers = max_workers
-        self.min_interval = 60.0 / requests_per_minute
-        self.last_request_time = time.time()
-        self.lock = threading.Lock()
+    async def acquire(self):
+        """Acquire rate limit token"""
+        current_time = time.time()
+        
+        async with self.lock:
+            # Remove timestamps older than our window
+            self.request_times = [t for t in self.request_times 
+                                if current_time - t < self.window_size]
+            
+            # If we're at capacity, wait until we have room
+            while len(self.request_times) >= self.requests_per_minute:
+                wait_time = self.request_times[0] + self.window_size - current_time
+                if wait_time > 0:
+                    await asyncio.sleep(wait_time)
+                current_time = time.time()
+                self.request_times = [t for t in self.request_times 
+                                    if current_time - t < self.window_size]
+            
+            self.request_times.append(current_time)
+            await self.semaphore.acquire()
 
-    def wait_for_rate_limit(self):
-        """Ensure minimum interval between requests"""
-        with self.lock:
-            current_time = time.time()
-            elapsed = current_time - self.last_request_time
-            if elapsed < self.min_interval:
-                time.sleep(self.min_interval - elapsed)
-            self.last_request_time = time.time()
+    async def release(self):
+        """Release rate limit token"""
+        self.semaphore.release()
 
-class GoodFireClient:
-    def __init__(self, api_key, variant, requests_per_minute=100):
-        self.client = goodfire.Client(api_key)
+class AsyncGoodFireClient:
+    def __init__(self, api_key: str, variant: goodfire.Variant, requests_per_minute=100, batch_size=10):
+        self.client = goodfire.AsyncClient(api_key)
         self.variant = variant
-        self.executor = RateLimitedExecutor(
-            max_workers=32,
-            requests_per_minute=requests_per_minute
-        )
-        # Initialize DataFrame with correct columns
-        self.results = pd.DataFrame(columns=['id', 'feature_activation', 'prompt', 'question', 'options', 'correct_index', 'response', 'hallucinated', 'error'])
+        self.rate_limiter = AsyncRateLimiter(requests_per_minute)
+        self.batch_size = batch_size
         self.feature_activation = 0
+        # Initialize DataFrame with correct columns
+        self.results = pd.DataFrame(columns=[
+            'id', 'feature_activation', 'prompt', 'question', 'options',
+            'correct_index', 'response', 'hallucinated', 'error'
+        ])
 
-    def set_feature_activation(self, feature_name, activation_value):
+    def set_feature_activation(self, feature: goodfire.Feature, activation_value: float):
         """Set feature activation for the variant"""
         self.feature_activation = activation_value
         self.variant.reset()
-        selected_feature = self.client.features.search(feature_name, top_k=1)[0][0]
-        self.variant.set(selected_feature, self.feature_activation, mode='pin')
+        self.variant.set(feature, self.feature_activation)
 
-    @exponential_backoff(max_retries=5, initial_wait=1, max_wait=60)
-    def generate_variant_response(self, prompt):
-        """
-        Generate a response to a prompt using the llama model with rate limiting
-        """
-        self.executor.wait_for_rate_limit()
-        response = self.client.chat.completions.create(
-            messages=[{"role": "user", "content": prompt}],
-            model=self.variant,
-            temperature=0,  # Set temperature to 0 to disable sampling
-        )
-        return response.choices[0].message['content']
+    async def generate_variant_response(self, prompt):
+        """Generate a response with rate limiting"""
+        max_retries = 5
+        initial_wait = 1
+        
+        for retry in range(max_retries):
+            try:
+                await self.rate_limiter.acquire()
+                try:
+                    response = await self.client.chat.completions.create(
+                        messages=[{"role": "user", "content": prompt}],
+                        model=self.variant,
+                        temperature=0
+                    )
+                    return response.choices[0].message['content']
+                finally:
+                    await self.rate_limiter.release()
+            except Exception as e:
+                if retry == max_retries - 1:
+                    raise e
+                wait_time = initial_wait * (2 ** retry) + random.uniform(0, 1)
+                await asyncio.sleep(wait_time)
+        raise Exception("Max retries exceeded")
 
     def process_response_for_hallucination(self, response_string):
         """Process response to determine if it contains hallucination"""
@@ -130,67 +123,54 @@ class GoodFireClient:
                 print(f"Both parsing methods failed. Error: {regex_error}")
                 return None
 
-    def get_responses_for_dataset(self, dataset):
-        """
-        Get responses for a dataset using thread pool executor with rate limiting
-        """
-        with futures.ThreadPoolExecutor(max_workers=self.executor.max_workers) as executor:
-            # Submit all tasks to the executor
-            future_to_datapoint = {
-                executor.submit(self.generate_variant_response, row['prompt']): row
-                for row in dataset
-            }
-            print(len(self.results))
+    async def process_batch(self, batch):
+        """Process a batch of rows concurrently"""
+        async def process_row(row):
+            try:
+                result = await self.generate_variant_response(row['prompt'])
+                hallucinated = self.process_response_for_hallucination(result)
+                return {
+                    'id': row['id'],
+                    'feature_activation': self.feature_activation,
+                    'prompt': row['prompt'],
+                    'question': row['question'],
+                    'options': row['options'],
+                    'correct_index': row['correct_index'],
+                    'response': result,
+                    'error': None,
+                    'hallucinated': hallucinated
+                }
+            except Exception as e:
+                return {
+                    'id': row['id'],
+                    'feature_activation': self.feature_activation,
+                    'prompt': row['prompt'],
+                    'question': row['question'],
+                    'options': row['options'],
+                    'correct_index': row['correct_index'],
+                    'response': None,
+                    'error': str(e),
+                    'hallucinated': None
+                }
 
-            # Process results as they complete
-            for future in tqdm.tqdm(
-                futures.as_completed(future_to_datapoint), 
-                total=len(future_to_datapoint)
-            ):
-                datapoint = future_to_datapoint[future]
-                try:
-                    result = future.result()
-                    hallucinated = self.process_response_for_hallucination(result)
+        tasks = [process_row(row) for row in batch]
+        results = await asyncio.gather(*tasks)
+        return pd.DataFrame(results)
 
-                    # Create a new row for the DataFrame
-                    new_row = pd.DataFrame([{
-                        'id': datapoint['id'],
-                        'feature_activation': self.feature_activation,
-                        'prompt': datapoint['prompt'],
-                        'question': datapoint['question'],
-                        'options': datapoint['options'],
-                        'correct_index': datapoint['correct_index'],
-                        'response': result,
-                        'error': None,
-                        'hallucinated': hallucinated
-                    }])
-
-                    # Concatenate the new row to the existing DataFrame
-                    self.results = pd.concat([self.results, new_row], ignore_index=True)
-
-                except Exception as e:
-                    print(f"Error processing prompt: {str(e)}")
-                    # Add error case to DataFrame
-                    new_row = pd.DataFrame([{
-                        'id': datapoint['id'],
-                        'feature_activation': self.feature_activation,
-                        'prompt': datapoint['prompt'],
-                        'question': datapoint['question'],
-                        'options': datapoint['options'],
-                        'correct_index': datapoint['correct_index'],
-                        'response': None,
-                        'error': str(e),
-                        'hallucinated': None
-                    }])
-                    self.results = pd.concat([self.results, new_row], ignore_index=True)
-
-            return self.results
+    async def get_responses_for_dataset(self, dataset):
+        """Process dataset with concurrent batches"""
+        results = []
+        for i in tqdm.tqdm(range(0, len(dataset), self.batch_size)):
+            batch = dataset[i:i + self.batch_size]
+            batch_results = await self.process_batch(batch)
+            results.append(batch_results)
+        
+        self.results = pd.concat([self.results] + results, ignore_index=True)
+        return self.results
 
 def get_hallucination_rate(df: pd.DataFrame):
-    """
-    Calculate the hallucination rate for the results dataframe.
-    """
-    # Plot the hallucination rate for each feature activation.
+    """Calculate the hallucination rate for the results dataframe."""
+    # Plot the hallucination rate for each feature activation
     hallucination_rates = {}
     for feature_activation in df['feature_activation'].unique():
         feature_activation_df = df[df['feature_activation'] == feature_activation]
@@ -206,51 +186,45 @@ def get_hallucination_rate(df: pd.DataFrame):
     # Propagate the errors to the hallucination rate
     error_bars = list(poisson_errors.values / total_counts.values)
 
-    # Do a scatter plot of the hallucination rate for each feature activation. Sorting the rows of the dataset in terms of the feature activation.
+    # Sort the rows of the dataset by feature activation
     hallucination_rates_df = hallucination_rates_df.sort_values(by='feature_activation')
     hallucination_rates = hallucination_rates_df['hallucination_rate'].to_list()
 
     return hallucination_rates, error_bars
 
-
-def main():
+async def main(args):
     # Load dataset
     base_model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
 
-    relevant_features = {
-        0: "The model should not recommend technological or medical interventions",
-        1: "Medical imaging techniques and procedures",
-        2: "Medical case presentations with complex patient symptoms"
-    }
-    # User parameters
-    selected_feature_index = 1
-    filename = f'feature_{selected_feature_index}_results'
-    min_activation, max_activation = -0.5, 0.5
-    feature_activation_steps = 8
-    n_examples = 200
+    # Load features from JSON file
+    relevant_features = load_features('relevant_features.json')
+    
+    # Set up filenames and parameters from command line args
+    filename = f'feature_{args.selected_feature_index}_results'
 
-    selected_feature_name = relevant_features[selected_feature_index]
+    selected_feature = relevant_features[args.selected_feature_index]
     fct_ds = PromptDataset(dataset_name='FCT', prompt_template_fn=lambda x: x)
-    sampled_fct_ds = fct_ds[:n_examples]  # Sample the first n rows
+    sampled_fct_ds = fct_ds[:args.n_examples]  # Sample the first n rows
 
     # Initialize GoodFire client
     variant = goodfire.Variant(base_model_name)
-    client = GoodFireClient(
+    client = AsyncGoodFireClient(
         api_key=GOODFIRE_API_KEY,
         variant=variant,
         requests_per_minute=RATE_LIMIT
     )
-    if selected_feature_name:
-        medical_dataset_accuracy = []
-        for feature_activation in np.linspace(min_activation, max_activation, feature_activation_steps):
-            # Benchmark hallucination rate
-            client.set_feature_activation(selected_feature_name, feature_activation)
-            # Run generation and hallucination check
-            _ = client.get_responses_for_dataset(sampled_fct_ds)
 
-            # Benchmark general medical capabilities.
-            evaluator = MedicalLLMEvaluator(client.client, client.variant)
-            accuracy, _, _, _ = evaluator.run_evaluation(
+    if selected_feature:
+        medical_dataset_accuracy = []
+        for activation_value in np.linspace(args.min_activation, args.max_activation, args.feature_activation_steps):
+            # Benchmark hallucination rate
+            client.set_feature_activation(selected_feature, activation_value)
+            # Run generation and hallucination check
+            _ = await client.get_responses_for_dataset(sampled_fct_ds)
+
+            # Benchmark general medical capabilities
+            evaluator = AsyncMedicalLLMEvaluator(client.client, client.variant)
+            accuracy, _, _, _ = await evaluator.run_evaluation(
                 k=100,             # number of samples
                 random_seed=42,    # for reproducibility
                 max_workers=32,    # concurrent API calls
@@ -261,19 +235,40 @@ def main():
         # Save the results to a TSV file
         client.results.to_csv(f'data/{filename}.tsv', index=False, sep='\t')
 
-        # Save 'cleaned out' version of the dataset, removing rows with errors on the generation or hallucination check
+        # Save 'cleaned out' version of the dataset
         results_cleaned = client.results.dropna(subset=['response', 'hallucinated'])
         results_cleaned.to_csv(f'data/{filename}_clean.tsv', index=False, sep='\t')
 
-        # Calculate hallucination rates and save all the results into a TSV file
+        # Calculate hallucination rates and save results
         hallucination_rates, error_bars = get_hallucination_rate(results_cleaned)
         results_df = pd.DataFrame({
-            'feature_activation': np.linspace(min_activation, max_activation, feature_activation_steps),
+            'feature_activation': np.linspace(args.min_activation, args.max_activation, args.feature_activation_steps),
             'hallucination_rate': hallucination_rates,
             'hallucination_rate_error': error_bars,
             'accuracy': medical_dataset_accuracy
         })
-        results_df.to_csv(f'data/feature_{selected_feature_index}_benchmark_results.tsv', index=False, sep='\t')
+        results_df.to_csv(f'data/feature_{args.selected_feature_index}_benchmark_results.tsv', index=False, sep='\t')
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='Run hallucination analysis with feature steering.')
+    parser.add_argument('--selected_feature_index', type=int, required=True,
+                      help='Index of the selected feature.')
+    parser.add_argument('--min_activation', type=float, default=-0.5,
+                      help='Minimum activation value.')
+    parser.add_argument('--max_activation', type=float, default=0.5,
+                      help='Maximum activation value.')
+    parser.add_argument('--feature_activation_steps', type=int, default=8,
+                      help='Number of activation steps.')
+    parser.add_argument('--n_examples', type=int, default=200,
+                      help='Number of examples to process.')
+    parser.add_argument('--batch_size', type=int, default=10,
+                      help='Number of examples to process concurrently in each batch.')
+
+    args = parser.parse_args()
+    
+    # Set up asyncio event loop with proper policy for Windows compatibility
+    if os.name == 'nt':  # Windows
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    
+    # Run the async main function
+    asyncio.run(main(args))

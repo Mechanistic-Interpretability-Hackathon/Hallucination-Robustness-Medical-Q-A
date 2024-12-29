@@ -3,33 +3,33 @@ import pandas as pd
 import logging
 
 from src.med_llm_evaluation.data_handler import DataHandler
-from src.med_llm_evaluation.llm_evaluator import LLMEvaluator
+from src.med_llm_evaluation.llm_evaluator import AsyncLLMEvaluator
 from src.med_llm_evaluation.statistical_analyzer import StatisticalAnalyzer
 
 logger = logging.getLogger(__name__)
 
-class MedicalLLMEvaluator:
+class AsyncMedicalLLMEvaluator:
     """Main interface for evaluating LLM performance on medical questions."""
 
-    def __init__(self, client, variant, cache_dir: str = ".cache/med_eval"):
+    def __init__(self, client, variant, batch_size: int = 10, cache_dir: str = ".cache/med_eval"):
         """
         Initialize the medical LLM evaluator.
         
         Args:
             client: The API client instance
             variant: The model variant to use
+            batch_size (int): Number of concurrent requests to process
             cache_dir (str): Directory for caching downloaded data
         """
         self.data_handler = DataHandler(cache_dir)
-        self.evaluator = LLMEvaluator(client, variant)
+        self.evaluator = AsyncLLMEvaluator(client, variant, batch_size=batch_size)
         self.analyzer = StatisticalAnalyzer()
     
-    def run_evaluation(self,
-                      k: int,
-                      subject_name: Optional[str] = None,
-                      random_seed: Optional[int] = None,
-                      max_workers: int = 10,
-                      alpha: float = 0.05) -> Tuple[float, float, pd.DataFrame, Dict]:
+    async def run_evaluation(self,
+                     k: int,
+                     subject_name: Optional[str] = None,
+                     random_seed: Optional[int] = None,
+                     alpha: float = 0.05) -> Tuple[float, float, pd.DataFrame, Dict]:
         """
         Run complete evaluation including statistical analysis.
         
@@ -37,7 +37,6 @@ class MedicalLLMEvaluator:
             k (int): Number of samples to evaluate
             subject_name (Optional[str]): Filter by subject name
             random_seed (Optional[int]): Random seed for reproducibility
-            max_workers (int): Maximum number of concurrent API calls
             alpha (float): Significance level for statistical tests
             
         Returns:
@@ -59,9 +58,9 @@ class MedicalLLMEvaluator:
         if len(X) < k:
             raise ValueError(f"Not enough data for subject: {subject_name} (need {k}, have {len(X)})")
 
-        # Run evaluation
-        accuracy, kappa, results_df = self.evaluator.evaluate(
-            X, y, k, random_seed, max_workers
+        # Run evaluation - now with await
+        accuracy, kappa, results_df = await self.evaluator.evaluate(
+            X, y, k, random_seed
         )
         
         # Perform statistical analysis on valid predictions
