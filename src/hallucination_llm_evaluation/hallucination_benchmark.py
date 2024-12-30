@@ -10,6 +10,10 @@ import re
 import goodfire
 import os
 import argparse
+import os
+import sys
+# Add the mech-interp directory to the path
+sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
 from src.hallucination_llm_evaluation.utils import load_features
 from src.medhalt.medhalt.models.utils import PromptDataset
 from src.med_llm_evaluation.medical_evaluator import AsyncMedicalLLMEvaluator
@@ -18,6 +22,8 @@ load_dotenv()
 
 GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')
 RATE_LIMIT = 99
+FEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'
+MODEL_NAME = "meta-llama/Llama-3.3-70B-Instruct"
 
 class AsyncRateLimiter:
     """Async rate limiter using a semaphore and sliding window"""
@@ -178,8 +184,10 @@ def get_hallucination_rate(df: pd.DataFrame):
         hallucination_rates[feature_activation] = hallucination_rate
     hallucination_rates_df = pd.DataFrame(hallucination_rates.items(), columns=['feature_activation', 'hallucination_rate'])
 
-    # Get the error bars
-    hallucination_value_counts = df[df['hallucinated'] == True]['feature_activation'].value_counts().sort_index()
+    # Get the hallucination counts for each feature activation
+    ### First, create an empty dataframe with all possible feature activations
+    all_feature_activations = df['feature_activation'].unique()
+    hallucination_value_counts = df[df['hallucinated'] == True]['feature_activation'].value_counts().reindex(all_feature_activations, fill_value=0).sort_index()
     total_counts = df['feature_activation'].value_counts().sort_index()
     # Assign Poisson errors to each hallucination count
     poisson_errors = hallucination_value_counts.apply(lambda x: x**0.5)
@@ -194,10 +202,10 @@ def get_hallucination_rate(df: pd.DataFrame):
 
 async def main(args):
     # Load dataset
-    base_model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+    base_model_name = MODEL_NAME
 
     # Load features from JSON file
-    relevant_features = load_features('relevant_features.json')
+    relevant_features = load_features(FEATURES_PATH)
     
     # Set up filenames and parameters from command line args
     filename = f'feature_{args.selected_feature_index}_results'
@@ -225,19 +233,18 @@ async def main(args):
             # Benchmark general medical capabilities
             evaluator = AsyncMedicalLLMEvaluator(client.client, client.variant)
             accuracy, _, _, _ = await evaluator.run_evaluation(
-                k=100,             # number of samples
+                k=10,             # number of samples
                 random_seed=42,    # for reproducibility
-                max_workers=32,    # concurrent API calls
                 subject_name=None  # optionally filter by subject
             )
             medical_dataset_accuracy.append(accuracy)
 
-        # Save the results to a TSV file
-        client.results.to_csv(f'data/{filename}.tsv', index=False, sep='\t')
+            # Save the results to a TSV file
+            client.results.to_csv(f'src/data/{filename}.tsv', index=False, sep='\t')
 
         # Save 'cleaned out' version of the dataset
         results_cleaned = client.results.dropna(subset=['response', 'hallucinated'])
-        results_cleaned.to_csv(f'data/{filename}_clean.tsv', index=False, sep='\t')
+        results_cleaned.to_csv(f'src/data/{filename}_clean.tsv', index=False, sep='\t')
 
         # Calculate hallucination rates and save results
         hallucination_rates, error_bars = get_hallucination_rate(results_cleaned)
@@ -247,7 +254,7 @@ async def main(args):
             'hallucination_rate_error': error_bars,
             'accuracy': medical_dataset_accuracy
         })
-        results_df.to_csv(f'data/feature_{args.selected_feature_index}_benchmark_results.tsv', index=False, sep='\t')
+        results_df.to_csv(f'src/data/feature_{args.selected_feature_index}_benchmark_results.tsv', index=False, sep='\t')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run hallucination analysis with feature steering.')

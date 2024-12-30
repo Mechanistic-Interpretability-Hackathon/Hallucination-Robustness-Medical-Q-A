@@ -1,6 +1,8 @@
 import goodfire
 import json
 import pandas as pd
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
 
 def save_features(features: goodfire.FeatureGroup, json_path):
     features_data = features.json()
