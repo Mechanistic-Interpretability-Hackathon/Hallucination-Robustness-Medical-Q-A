@@ -1,0 +1,16 @@
+{
+    "features": [
+        {
+            "uuid": "d8a10c5de6b14169845ec5c36e492fe5",
+            "label": "Verification and understanding of information or concepts",
+            "index_in_sae": 37383,
+            "max_activation_strength": 1
+        },
+        {
+            "uuid": "d49d163954ab4d8dbbf654ef5f490a30",
+            "label": "Recognition and acknowledgment of personal biases and blind spots",
+            "index_in_sae": 48925,
+            "max_activation_strength": 1
+        }
+    ]
+}
