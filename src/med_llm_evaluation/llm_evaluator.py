@@ -1,33 +1,34 @@
 import re
 import random
+import asyncio
 from typing import Dict, List, Optional, Tuple
-from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 from sklearn.metrics import accuracy_score, confusion_matrix, cohen_kappa_score
 import logging
 
 logger = logging.getLogger(__name__)
 
-class LLMEvaluator:
-    """Handles evaluation of LLM performance on medical questions."""
+class AsyncLLMEvaluator:
+    """Handles async evaluation of LLM performance on medical questions."""
     
-    def __init__(self, client, variant):
+    def __init__(self, client, variant, batch_size: int = 10):
         """
         Initialize evaluator with API client and variant.
         
         Args:
-            client: The API client instance
+            client: The async API client instance
             variant: The model variant to use
+            batch_size: Number of concurrent requests to process
         """
         self.variant = variant
         self.client = client
+        self.batch_size = batch_size
     
-    def evaluate(self, 
+    async def evaluate(self, 
                 X: List[str], 
                 y: List[int], 
                 k: int,
-                random_seed: Optional[int] = None,
-                max_workers: int = 10) -> Tuple[float, float, pd.DataFrame]:
+                random_seed: Optional[int] = None) -> Tuple[float, float, pd.DataFrame]:
         """
         Evaluate model performance on a sample of questions.
         
@@ -36,13 +37,12 @@ class LLMEvaluator:
             y (List[int]): List of correct answers
             k (int): Number of samples to evaluate
             random_seed (Optional[int]): Random seed for reproducibility
-            max_workers (int): Maximum number of concurrent API calls
             
         Returns:
             Tuple[float, float, pd.DataFrame]: Accuracy, kappa, and detailed results
         """
         X_sample, y_sample, indices = self._sample_data(X, y, k, random_seed)
-        return self._evaluate_concurrent(X_sample, y_sample, max_workers)
+        return await self._evaluate_concurrent(X_sample, y_sample)
     
     def _sample_data(self, 
                     X: List[str], 
@@ -60,32 +60,39 @@ class LLMEvaluator:
         
         return X_sampled, y_sampled, indices
     
-    def _evaluate_concurrent(self, 
+    async def _evaluate_concurrent(self, 
                            X_sample: List[str], 
-                           y_sample: List[int],
-                           max_workers: int) -> Tuple[float, float, pd.DataFrame]:
-        """Evaluate samples concurrently."""
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = [
-                executor.submit(self._get_model_response, prompt)
-                for prompt in X_sample
+                           y_sample: List[int]) -> Tuple[float, float, pd.DataFrame]:
+        """Evaluate samples concurrently in batches."""
+        y_pred = []
+        
+        # Process in batches
+        for i in range(0, len(X_sample), self.batch_size):
+            batch_prompts = X_sample[i:i + self.batch_size]
+            
+            # Create tasks for batch
+            tasks = [
+                self._get_model_response(prompt)
+                for prompt in batch_prompts
             ]
             
-            y_pred = []
-            for future in futures:
-                try:
-                    result = future.result()
-                    y_pred.append(result if result is not None else -1)
-                except Exception as e:
-                    logger.error(f"Error in API call: {e}")
+            # Run batch concurrently
+            batch_results = await asyncio.gather(*tasks, return_exceptions=True)
+            
+            # Process results
+            for result in batch_results:
+                if isinstance(result, Exception):
+                    logger.error(f"Error in API call: {result}")
                     y_pred.append(-1)
+                else:
+                    y_pred.append(result if result is not None else -1)
         
         return self._calculate_metrics(X_sample, y_sample, y_pred)
     
-    def _get_model_response(self, prompt: str) -> Optional[int]:
+    async def _get_model_response(self, prompt: str) -> Optional[int]:
         """Get integer response from model."""
         try:
-            response = self.client.chat.completions.create(
+            response = await self.client.chat.completions.create(
                 messages=[{"role": "user", "content": prompt}],
                 model=self.variant,
                 stream=False,
