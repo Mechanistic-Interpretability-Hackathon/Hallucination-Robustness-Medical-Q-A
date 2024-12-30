@@ -1,0 +1,29 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label=<The user has asked the assistant to make a binary determination or classification &le; 2.5<br/>gini = 0.5<br/>samples = 160<br/>value = [81, 79]<br/>class = no>, fillcolor="#fefcfa"] ;
+1 [label=<Medical treatment protocols and medication administration details &le; 66.0<br/>gini = 0.245<br/>samples = 56<br/>value = [8, 48]<br/>class = maybe>, fillcolor="#5aade9"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<Novel synthetic materials and hybrid structures in scientific papers &le; 0.5<br/>gini = 0.124<br/>samples = 45<br/>value = [3, 42]<br/>class = maybe>, fillcolor="#47a4e7"] ;
+1 -> 2 ;
+3 [label=<gini = 0.305<br/>samples = 16<br/>value = [3, 13]<br/>class = maybe>, fillcolor="#67b4eb"] ;
+2 -> 3 ;
+4 [label=<gini = 0.0<br/>samples = 29<br/>value = [0, 29]<br/>class = maybe>, fillcolor="#399de5"] ;
+2 -> 4 ;
+5 [label=<gini = 0.496<br/>samples = 11<br/>value = [5, 6]<br/>class = maybe>, fillcolor="#deeffb"] ;
+1 -> 5 ;
+6 [label=<Business growth and market competitiveness &le; 47.5<br/>gini = 0.418<br/>samples = 104<br/>value = [73, 31]<br/>class = no>, fillcolor="#f0b78d"] ;
+0 -> 6 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+7 [label=<Clinical discussions of pain assessment and management &le; 3.5<br/>gini = 0.462<br/>samples = 83<br/>value = [53.0, 30.0]<br/>class = no>, fillcolor="#f4c8a9"] ;
+6 -> 7 ;
+8 [label=<gini = 0.486<br/>samples = 72<br/>value = [42, 30]<br/>class = no>, fillcolor="#f8dbc6"] ;
+7 -> 8 ;
+9 [label=<gini = 0.0<br/>samples = 11<br/>value = [11, 0]<br/>class = no>, fillcolor="#e58139"] ;
+7 -> 9 ;
+10 [label=<Technical discussion of test measurement properties and assessment methodology &le; 2.5<br/>gini = 0.091<br/>samples = 21<br/>value = [20, 1]<br/>class = no>, fillcolor="#e68743"] ;
+6 -> 10 ;
+11 [label=<gini = 0.0<br/>samples = 13<br/>value = [13, 0]<br/>class = no>, fillcolor="#e58139"] ;
+10 -> 11 ;
+12 [label=<gini = 0.219<br/>samples = 8<br/>value = [7, 1]<br/>class = no>, fillcolor="#e99355"] ;
+10 -> 12 ;
+}
