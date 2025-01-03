@@ -327,12 +327,166 @@
         "documentation": {}
     },
     {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
         "label": "asyncio",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "asyncio",
         "description": "asyncio",
         "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "load_features",
+        "importPath": "src.hallucination_llm_evaluation.utils",
+        "description": "src.hallucination_llm_evaluation.utils",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.utils",
+        "documentation": {}
+    },
+    {
+        "label": "load_features",
+        "importPath": "src.hallucination_llm_evaluation.utils",
+        "description": "src.hallucination_llm_evaluation.utils",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.utils",
+        "documentation": {}
+    },
+    {
+        "label": "load_features",
+        "importPath": "src.hallucination_llm_evaluation.utils",
+        "description": "src.hallucination_llm_evaluation.utils",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.utils",
+        "documentation": {}
+    },
+    {
+        "label": "PromptDataset",
+        "importPath": "src.medhalt.medhalt.models.utils",
+        "description": "src.medhalt.medhalt.models.utils",
+        "isExtraImport": true,
+        "detail": "src.medhalt.medhalt.models.utils",
+        "documentation": {}
+    },
+    {
+        "label": "PromptDataset",
+        "importPath": "src.medhalt.medhalt.models.utils",
+        "description": "src.medhalt.medhalt.models.utils",
+        "isExtraImport": true,
+        "detail": "src.medhalt.medhalt.models.utils",
+        "documentation": {}
+    },
+    {
+        "label": "PromptDataset",
+        "importPath": "src.medhalt.medhalt.models.utils",
+        "description": "src.medhalt.medhalt.models.utils",
+        "isExtraImport": true,
+        "detail": "src.medhalt.medhalt.models.utils",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncMedicalLLMEvaluator",
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncMedicalLLMEvaluator",
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncMedicalLLMEvaluator",
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "MedicalLLMEvaluator",
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncGoodFireClient",
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "GOODFIRE_API_KEY",
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "RATE_LIMIT",
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "MODEL_NAME",
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncGoodFireClient",
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "documentation": {}
     },
     {
@@ -371,15 +525,6 @@
         "documentation": {}
     },
     {
-        "label": "pandas",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pandas",
-        "description": "pandas",
-        "detail": "pandas",
-        "documentation": {}
-    },
-    {
         "label": "ast",
         "kind": 6,
         "isExtraImport": true,
@@ -406,53 +551,12 @@
         "documentation": {}
     },
     {
-        "label": "argparse",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "argparse",
-        "description": "argparse",
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "sys",
         "description": "sys",
         "detail": "sys",
-        "documentation": {}
-    },
-    {
-        "label": "load_features",
-        "importPath": "src.hallucination_llm_evaluation.utils",
-        "description": "src.hallucination_llm_evaluation.utils",
-        "isExtraImport": true,
-        "detail": "src.hallucination_llm_evaluation.utils",
-        "documentation": {}
-    },
-    {
-        "label": "PromptDataset",
-        "importPath": "src.medhalt.medhalt.models.utils",
-        "description": "src.medhalt.medhalt.models.utils",
-        "isExtraImport": true,
-        "detail": "src.medhalt.medhalt.models.utils",
-        "documentation": {}
-    },
-    {
-        "label": "AsyncMedicalLLMEvaluator",
-        "importPath": "src.med_llm_evaluation.medical_evaluator",
-        "description": "src.med_llm_evaluation.medical_evaluator",
-        "isExtraImport": true,
-        "detail": "src.med_llm_evaluation.medical_evaluator",
-        "documentation": {}
-    },
-    {
-        "label": "MedicalLLMEvaluator",
-        "importPath": "src.med_llm_evaluation.medical_evaluator",
-        "description": "src.med_llm_evaluation.medical_evaluator",
-        "isExtraImport": true,
-        "detail": "src.med_llm_evaluation.medical_evaluator",
         "documentation": {}
     },
     {
@@ -774,6 +878,51 @@
         "documentation": {}
     },
     {
+        "label": "get_hallucination_rate",
+        "kind": 2,
+        "importPath": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "description": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "peekOfCode": "def get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate\n    hallucination_rates_df = pd.DataFrame(hallucination_rates.items(), columns=['feature_activation', 'hallucination_rate'])\n    # Get the hallucination counts for each feature activation",
+        "detail": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "documentation": {}
+    },
+    {
+        "label": "GOODFIRE_API_KEY",
+        "kind": 5,
+        "importPath": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "description": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "peekOfCode": "GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')\nRATE_LIMIT = 99\nFEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\ndef get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]",
+        "detail": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "documentation": {}
+    },
+    {
+        "label": "RATE_LIMIT",
+        "kind": 5,
+        "importPath": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "description": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "peekOfCode": "RATE_LIMIT = 99\nFEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\ndef get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())",
+        "detail": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "documentation": {}
+    },
+    {
+        "label": "FEATURES_PATH",
+        "kind": 5,
+        "importPath": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "description": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "peekOfCode": "FEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\ndef get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate",
+        "detail": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "documentation": {}
+    },
+    {
+        "label": "MODEL_NAME",
+        "kind": 5,
+        "importPath": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "description": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "peekOfCode": "MODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\ndef get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate\n    hallucination_rates_df = pd.DataFrame(hallucination_rates.items(), columns=['feature_activation', 'hallucination_rate'])",
+        "detail": "src.hallucination_llm_evaluation.feature_steering_hallucination",
+        "documentation": {}
+    },
+    {
         "label": "AsyncRateLimiter",
         "kind": 6,
         "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
@@ -788,15 +937,6 @@
         "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "peekOfCode": "class AsyncGoodFireClient:\n    def __init__(self, api_key: str, variant: goodfire.Variant, requests_per_minute=100, batch_size=10):\n        self.client = goodfire.AsyncClient(api_key)\n        self.variant = variant\n        self.rate_limiter = AsyncRateLimiter(requests_per_minute)\n        self.batch_size = batch_size\n        self.feature_activation = 0\n        # Initialize DataFrame with correct columns\n        self.results = pd.DataFrame(columns=[\n            'id', 'feature_activation', 'prompt', 'question', 'options',",
-        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
-        "documentation": {}
-    },
-    {
-        "label": "get_hallucination_rate",
-        "kind": 2,
-        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
-        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
-        "peekOfCode": "def get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate\n    hallucination_rates_df = pd.DataFrame(hallucination_rates.items(), columns=['feature_activation', 'hallucination_rate'])\n    # Get the hallucination counts for each feature activation",
         "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "documentation": {}
     },
