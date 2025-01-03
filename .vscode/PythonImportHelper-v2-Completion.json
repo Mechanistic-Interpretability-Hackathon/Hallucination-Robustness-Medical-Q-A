@@ -327,28 +327,56 @@
         "documentation": {}
     },
     {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "json",
+        "label": "asyncio",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "wraps",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
         "documentation": {}
     },
     {
@@ -366,6 +394,99 @@
         "description": "ast",
         "isExtraImport": true,
         "detail": "ast",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "load_features",
+        "importPath": "src.hallucination_llm_evaluation.utils",
+        "description": "src.hallucination_llm_evaluation.utils",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.utils",
+        "documentation": {}
+    },
+    {
+        "label": "PromptDataset",
+        "importPath": "src.medhalt.medhalt.models.utils",
+        "description": "src.medhalt.medhalt.models.utils",
+        "isExtraImport": true,
+        "detail": "src.medhalt.medhalt.models.utils",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncMedicalLLMEvaluator",
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "MedicalLLMEvaluator",
+        "importPath": "src.med_llm_evaluation.medical_evaluator",
+        "description": "src.med_llm_evaluation.medical_evaluator",
+        "isExtraImport": true,
+        "detail": "src.med_llm_evaluation.medical_evaluator",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "sys,",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys.",
+        "description": "sys.",
+        "detail": "sys.",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -391,74 +512,6 @@
         "importPath": "logging",
         "description": "logging",
         "detail": "logging",
-        "documentation": {}
-    },
-    {
-        "label": "MedicalLLMEvaluator",
-        "importPath": "src.med_llm_evaluation.medical_evaluator",
-        "description": "src.med_llm_evaluation.medical_evaluator",
-        "isExtraImport": true,
-        "detail": "src.med_llm_evaluation.medical_evaluator",
-        "documentation": {}
-    },
-    {
-        "label": "MedicalLLMEvaluator",
-        "importPath": "src.med_llm_evaluation.medical_evaluator",
-        "description": "src.med_llm_evaluation.medical_evaluator",
-        "isExtraImport": true,
-        "detail": "src.med_llm_evaluation.medical_evaluator",
-        "documentation": {}
-    },
-    {
-        "label": "re",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "re",
-        "description": "re",
-        "detail": "re",
-        "documentation": {}
-    },
-    {
-        "label": "random",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "random",
-        "description": "random",
-        "detail": "random",
-        "documentation": {}
-    },
-    {
-        "label": "concurrent.futures",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "concurrent.futures",
-        "description": "concurrent.futures",
-        "detail": "concurrent.futures",
-        "documentation": {}
-    },
-    {
-        "label": "ThreadPoolExecutor",
-        "importPath": "concurrent.futures",
-        "description": "concurrent.futures",
-        "isExtraImport": true,
-        "detail": "concurrent.futures",
-        "documentation": {}
-    },
-    {
-        "label": "ThreadPoolExecutor",
-        "importPath": "concurrent.futures",
-        "description": "concurrent.futures",
-        "isExtraImport": true,
-        "detail": "concurrent.futures",
-        "documentation": {}
-    },
-    {
-        "label": "pandas",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pandas",
-        "description": "pandas",
-        "detail": "pandas",
         "documentation": {}
     },
     {
@@ -518,7 +571,7 @@
         "documentation": {}
     },
     {
-        "label": "LLMEvaluator",
+        "label": "AsyncLLMEvaluator",
         "importPath": "src.med_llm_evaluation.llm_evaluator",
         "description": "src.med_llm_evaluation.llm_evaluator",
         "isExtraImport": true,
@@ -559,55 +612,11 @@
         "documentation": {}
     },
     {
-        "label": "tqdm",
-        "kind": 6,
+        "label": "ThreadPoolExecutor",
+        "importPath": "concurrent.futures",
+        "description": "concurrent.futures",
         "isExtraImport": true,
-        "importPath": "tqdm",
-        "description": "tqdm",
-        "detail": "tqdm",
-        "documentation": {}
-    },
-    {
-        "label": "time",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
-        "documentation": {}
-    },
-    {
-        "label": "threading",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "threading",
-        "description": "threading",
-        "detail": "threading",
-        "documentation": {}
-    },
-    {
-        "label": "wraps",
-        "importPath": "functools",
-        "description": "functools",
-        "isExtraImport": true,
-        "detail": "functools",
-        "documentation": {}
-    },
-    {
-        "label": "sys",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
-        "documentation": {}
-    },
-    {
-        "label": "PromptDataset",
-        "importPath": "src.medhalt.medhalt.models.utils",
-        "description": "src.medhalt.medhalt.models.utils",
-        "isExtraImport": true,
-        "detail": "src.medhalt.medhalt.models.utils",
+        "detail": "concurrent.futures",
         "documentation": {}
     },
     {
@@ -765,6 +774,96 @@
         "documentation": {}
     },
     {
+        "label": "AsyncRateLimiter",
+        "kind": 6,
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "peekOfCode": "class AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = requests_per_minute\n        self.lock = asyncio.Lock()\n    async def acquire(self):\n        \"\"\"Acquire rate limit token\"\"\"",
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncGoodFireClient",
+        "kind": 6,
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "peekOfCode": "class AsyncGoodFireClient:\n    def __init__(self, api_key: str, variant: goodfire.Variant, requests_per_minute=100, batch_size=10):\n        self.client = goodfire.AsyncClient(api_key)\n        self.variant = variant\n        self.rate_limiter = AsyncRateLimiter(requests_per_minute)\n        self.batch_size = batch_size\n        self.feature_activation = 0\n        # Initialize DataFrame with correct columns\n        self.results = pd.DataFrame(columns=[\n            'id', 'feature_activation', 'prompt', 'question', 'options',",
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "get_hallucination_rate",
+        "kind": 2,
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "peekOfCode": "def get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate\n    hallucination_rates_df = pd.DataFrame(hallucination_rates.items(), columns=['feature_activation', 'hallucination_rate'])\n    # Get the hallucination counts for each feature activation",
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "GOODFIRE_API_KEY",
+        "kind": 5,
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "peekOfCode": "GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')\nRATE_LIMIT = 99\nFEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\nclass AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window",
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "RATE_LIMIT",
+        "kind": 5,
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "peekOfCode": "RATE_LIMIT = 99\nFEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\nclass AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = requests_per_minute",
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "FEATURES_PATH",
+        "kind": 5,
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "peekOfCode": "FEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\nclass AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = requests_per_minute\n        self.lock = asyncio.Lock()",
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "MODEL_NAME",
+        "kind": 5,
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "peekOfCode": "MODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\nclass AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = requests_per_minute\n        self.lock = asyncio.Lock()\n    async def acquire(self):",
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "save_features",
+        "kind": 2,
+        "importPath": "src.hallucination_llm_evaluation.utils",
+        "description": "src.hallucination_llm_evaluation.utils",
+        "peekOfCode": "def save_features(features: goodfire.FeatureGroup, json_path):\n    features_data = features.json()\n    with open(json_path, 'w') as f:\n        json.dump(features_data, f, indent=4)\ndef load_features(json_path) -> goodfire.FeatureGroup:\n    with open(json_path, 'r') as f:\n        features_data = json.load(f)\n        loaded_features = goodfire.FeatureGroup.from_json(features_data)\n    return loaded_features\ndef process_jsonl_file(file_path):",
+        "detail": "src.hallucination_llm_evaluation.utils",
+        "documentation": {}
+    },
+    {
+        "label": "load_features",
+        "kind": 2,
+        "importPath": "src.hallucination_llm_evaluation.utils",
+        "description": "src.hallucination_llm_evaluation.utils",
+        "peekOfCode": "def load_features(json_path) -> goodfire.FeatureGroup:\n    with open(json_path, 'r') as f:\n        features_data = json.load(f)\n        loaded_features = goodfire.FeatureGroup.from_json(features_data)\n    return loaded_features\ndef process_jsonl_file(file_path):\n    with open(file_path) as f:\n        data = f.readlines()\n        data = [json.loads(line) for line in data]\n    df = pd.DataFrame(data)",
+        "detail": "src.hallucination_llm_evaluation.utils",
+        "documentation": {}
+    },
+    {
+        "label": "process_jsonl_file",
+        "kind": 2,
+        "importPath": "src.hallucination_llm_evaluation.utils",
+        "description": "src.hallucination_llm_evaluation.utils",
+        "peekOfCode": "def process_jsonl_file(file_path):\n    with open(file_path) as f:\n        data = f.readlines()\n        data = [json.loads(line) for line in data]\n    df = pd.DataFrame(data)\n    return df",
+        "detail": "src.hallucination_llm_evaluation.utils",
+        "documentation": {}
+    },
+    {
         "label": "DataHandler",
         "kind": 6,
         "importPath": "src.med_llm_evaluation.data_handler",
@@ -828,11 +927,11 @@
         "documentation": {}
     },
     {
-        "label": "LLMEvaluator",
+        "label": "AsyncLLMEvaluator",
         "kind": 6,
         "importPath": "src.med_llm_evaluation.llm_evaluator",
         "description": "src.med_llm_evaluation.llm_evaluator",
-        "peekOfCode": "class LLMEvaluator:\n    \"\"\"Handles evaluation of LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant):\n        \"\"\"\n        Initialize evaluator with API client and variant.\n        Args:\n            client: The API client instance\n            variant: The model variant to use\n        \"\"\"\n        self.variant = variant",
+        "peekOfCode": "class AsyncLLMEvaluator:\n    \"\"\"Handles async evaluation of LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant, batch_size: int = 10):\n        \"\"\"\n        Initialize evaluator with API client and variant.\n        Args:\n            client: The async API client instance\n            variant: The model variant to use\n            batch_size: Number of concurrent requests to process\n        \"\"\"",
         "detail": "src.med_llm_evaluation.llm_evaluator",
         "documentation": {}
     },
@@ -841,16 +940,16 @@
         "kind": 5,
         "importPath": "src.med_llm_evaluation.llm_evaluator",
         "description": "src.med_llm_evaluation.llm_evaluator",
-        "peekOfCode": "logger = logging.getLogger(__name__)\nclass LLMEvaluator:\n    \"\"\"Handles evaluation of LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant):\n        \"\"\"\n        Initialize evaluator with API client and variant.\n        Args:\n            client: The API client instance\n            variant: The model variant to use\n        \"\"\"",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass AsyncLLMEvaluator:\n    \"\"\"Handles async evaluation of LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant, batch_size: int = 10):\n        \"\"\"\n        Initialize evaluator with API client and variant.\n        Args:\n            client: The async API client instance\n            variant: The model variant to use\n            batch_size: Number of concurrent requests to process",
         "detail": "src.med_llm_evaluation.llm_evaluator",
         "documentation": {}
     },
     {
-        "label": "MedicalLLMEvaluator",
+        "label": "AsyncMedicalLLMEvaluator",
         "kind": 6,
         "importPath": "src.med_llm_evaluation.medical_evaluator",
         "description": "src.med_llm_evaluation.medical_evaluator",
-        "peekOfCode": "class MedicalLLMEvaluator:\n    \"\"\"Main interface for evaluating LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant, cache_dir: str = \".cache/med_eval\"):\n        \"\"\"\n        Initialize the medical LLM evaluator.\n        Args:\n            client: The API client instance\n            variant: The model variant to use\n            cache_dir (str): Directory for caching downloaded data\n        \"\"\"",
+        "peekOfCode": "class AsyncMedicalLLMEvaluator:\n    \"\"\"Main interface for evaluating LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant, batch_size: int = 10, cache_dir: str = \".cache/med_eval\"):\n        \"\"\"\n        Initialize the medical LLM evaluator.\n        Args:\n            client: The API client instance\n            variant: The model variant to use\n            batch_size (int): Number of concurrent requests to process\n            cache_dir (str): Directory for caching downloaded data",
         "detail": "src.med_llm_evaluation.medical_evaluator",
         "documentation": {}
     },
@@ -859,7 +958,7 @@
         "kind": 5,
         "importPath": "src.med_llm_evaluation.medical_evaluator",
         "description": "src.med_llm_evaluation.medical_evaluator",
-        "peekOfCode": "logger = logging.getLogger(__name__)\nclass MedicalLLMEvaluator:\n    \"\"\"Main interface for evaluating LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant, cache_dir: str = \".cache/med_eval\"):\n        \"\"\"\n        Initialize the medical LLM evaluator.\n        Args:\n            client: The API client instance\n            variant: The model variant to use\n            cache_dir (str): Directory for caching downloaded data",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass AsyncMedicalLLMEvaluator:\n    \"\"\"Main interface for evaluating LLM performance on medical questions.\"\"\"\n    def __init__(self, client, variant, batch_size: int = 10, cache_dir: str = \".cache/med_eval\"):\n        \"\"\"\n        Initialize the medical LLM evaluator.\n        Args:\n            client: The API client instance\n            variant: The model variant to use\n            batch_size (int): Number of concurrent requests to process",
         "detail": "src.med_llm_evaluation.medical_evaluator",
         "documentation": {}
     },
@@ -879,69 +978,6 @@
         "description": "src.med_llm_evaluation.utils",
         "peekOfCode": "logger = logging.getLogger(__name__)",
         "detail": "src.med_llm_evaluation.utils",
-        "documentation": {}
-    },
-    {
-        "label": "RateLimitedExecutor",
-        "kind": 6,
-        "importPath": "src.notebooks.hallucination_benchmark",
-        "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "class RateLimitedExecutor:\n    \"\"\"\n    Thread pool executor with rate limiting capabilities.\n    \"\"\"\n    def __init__(self, max_workers=32, requests_per_minute=100):\n        self.max_workers = max_workers\n        self.min_interval = 60.0 / requests_per_minute\n        self.last_request_time = time.time()\n        self.lock = threading.Lock()\n    def wait_for_rate_limit(self):",
-        "detail": "src.notebooks.hallucination_benchmark",
-        "documentation": {}
-    },
-    {
-        "label": "GoodFireClient",
-        "kind": 6,
-        "importPath": "src.notebooks.hallucination_benchmark",
-        "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "class GoodFireClient:\n    def __init__(self, api_key, variant, requests_per_minute=100):\n        self.client = goodfire.Client(api_key)\n        self.variant = variant\n        self.executor = RateLimitedExecutor(\n            max_workers=32,\n            requests_per_minute=requests_per_minute\n        )\n        # Initialize DataFrame with correct columns\n        self.results = pd.DataFrame(columns=['id', 'feature_activation', 'prompt', 'question', 'options', 'correct_index', 'response', 'hallucinated', 'error'])",
-        "detail": "src.notebooks.hallucination_benchmark",
-        "documentation": {}
-    },
-    {
-        "label": "exponential_backoff",
-        "kind": 2,
-        "importPath": "src.notebooks.hallucination_benchmark",
-        "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "def exponential_backoff(max_retries=5, initial_wait=1, max_wait=60):\n    \"\"\"\n    Decorator that implements exponential backoff for rate-limited functions.\n    Args:\n        max_retries (int): Maximum number of retry attempts\n        initial_wait (float): Initial wait time in seconds\n        max_wait (float): Maximum wait time in seconds\n    \"\"\"\n    def decorator(func):\n        @wraps(func)",
-        "detail": "src.notebooks.hallucination_benchmark",
-        "documentation": {}
-    },
-    {
-        "label": "get_hallucination_rate",
-        "kind": 2,
-        "importPath": "src.notebooks.hallucination_benchmark",
-        "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "def get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"\n    Calculate the hallucination rate for the results dataframe.\n    \"\"\"\n    # Plot the hallucination rate for each feature activation.\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate",
-        "detail": "src.notebooks.hallucination_benchmark",
-        "documentation": {}
-    },
-    {
-        "label": "main",
-        "kind": 2,
-        "importPath": "src.notebooks.hallucination_benchmark",
-        "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "def main():\n    # Load dataset\n    base_model_name = \"meta-llama/Meta-Llama-3-8B-Instruct\"\n    relevant_features = {\n        0: \"The model should not recommend technological or medical interventions\",\n        1: \"Medical imaging techniques and procedures\",\n        2: \"Medical case presentations with complex patient symptoms\"\n    }\n    # User parameters\n    selected_feature_index = 1",
-        "detail": "src.notebooks.hallucination_benchmark",
-        "documentation": {}
-    },
-    {
-        "label": "GOODFIRE_API_KEY",
-        "kind": 5,
-        "importPath": "src.notebooks.hallucination_benchmark",
-        "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')\nRATE_LIMIT = 99\ndef exponential_backoff(max_retries=5, initial_wait=1, max_wait=60):\n    \"\"\"\n    Decorator that implements exponential backoff for rate-limited functions.\n    Args:\n        max_retries (int): Maximum number of retry attempts\n        initial_wait (float): Initial wait time in seconds\n        max_wait (float): Maximum wait time in seconds\n    \"\"\"",
-        "detail": "src.notebooks.hallucination_benchmark",
-        "documentation": {}
-    },
-    {
-        "label": "RATE_LIMIT",
-        "kind": 5,
-        "importPath": "src.notebooks.hallucination_benchmark",
-        "description": "src.notebooks.hallucination_benchmark",
-        "peekOfCode": "RATE_LIMIT = 99\ndef exponential_backoff(max_retries=5, initial_wait=1, max_wait=60):\n    \"\"\"\n    Decorator that implements exponential backoff for rate-limited functions.\n    Args:\n        max_retries (int): Maximum number of retry attempts\n        initial_wait (float): Initial wait time in seconds\n        max_wait (float): Maximum wait time in seconds\n    \"\"\"\n    def decorator(func):",
-        "detail": "src.notebooks.hallucination_benchmark",
         "documentation": {}
     },
     {
