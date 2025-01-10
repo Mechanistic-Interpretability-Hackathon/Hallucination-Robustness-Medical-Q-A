@@ -1,0 +1,22 @@
+{
+    "features": [
+        {
+            "uuid": "307164e3436a4eadb46fe3202e94876a",
+            "label": "Medical diagnostic relationships between diseases and symptoms",
+            "index_in_sae": 13510,
+            "max_activation_strength": 1
+        },
+        {
+            "uuid": "adc6580381b04d0ca5bd0f056482c265",
+            "label": "The assistant is listing multiple medical diagnoses or conditions",
+            "index_in_sae": 61255,
+            "max_activation_strength": 1
+        },
+        {
+            "uuid": "f34a6deeaad2463aa3c8c93bf55b099f",
+            "label": "Medical case narrative flow and symptom progression documentation",
+            "index_in_sae": 31230,
+            "max_activation_strength": 1
+        }
+    ]
+}
