@@ -1,0 +1,22 @@
+{
+    "features": [
+        {
+            "uuid": "cdf83bc589204999b945793ddf707f25",
+            "label": "Discussions of allergies, sensitivities and their effects on susceptible individuals",
+            "index_in_sae": 1192,
+            "max_activation_strength": 1
+        },
+        {
+            "uuid": "fc73523976c94410a1aeed34a0d6dff3",
+            "label": "Fever and elevated body temperature in medical contexts",
+            "index_in_sae": 47738,
+            "max_activation_strength": 1
+        },
+        {
+            "uuid": "7bed849d6e5b437d9929110646d74886",
+            "label": "Medical treatment recommendations and follow-up instructions in clinical notes",
+            "index_in_sae": 47333,
+            "max_activation_strength": 1
+        }
+    ]
+}
