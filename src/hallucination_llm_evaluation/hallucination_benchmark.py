@@ -21,17 +21,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')
-RATE_LIMIT = 99
+RATE_LIMIT = 100
 FEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'
 MODEL_NAME = "meta-llama/Llama-3.3-70B-Instruct"
 
 class AsyncRateLimiter:
     """Async rate limiter using a semaphore and sliding window"""
-    def __init__(self, requests_per_minute: int):
-        self.semaphore = asyncio.Semaphore(requests_per_minute)
+    def __init__(self):
+        self.semaphore = asyncio.Semaphore(RATE_LIMIT)
         self.request_times = []
         self.window_size = 60  # 1 minute window
-        self.requests_per_minute = requests_per_minute
+        self.requests_per_minute = RATE_LIMIT
         self.lock = asyncio.Lock()
 
     async def acquire(self):
@@ -60,10 +60,10 @@ class AsyncRateLimiter:
         self.semaphore.release()
 
 class AsyncGoodFireClient:
-    def __init__(self, api_key: str, variant: goodfire.Variant, requests_per_minute=100, batch_size=10):
+    def __init__(self, api_key: str, variant: goodfire.Variant, batch_size=100):
         self.client = goodfire.AsyncClient(api_key)
         self.variant = variant
-        self.rate_limiter = AsyncRateLimiter(requests_per_minute)
+        self.rate_limiter = AsyncRateLimiter()
         self.batch_size = batch_size
         self.feature_activation = 0
         # Initialize DataFrame with correct columns
@@ -163,13 +163,13 @@ class AsyncGoodFireClient:
         results = await asyncio.gather(*tasks)
         return pd.DataFrame(results)
 
-    async def get_responses_for_dataset(self, dataset):
+    async def get_responses_for_dataset(self, dataset, filename):
         """Process dataset with concurrent batches"""
         results = []
         for i in tqdm.tqdm(range(0, len(dataset), self.batch_size)):
             batch = dataset[i:i + self.batch_size]
             batch_results = await self.process_batch(batch)
             results.append(batch_results)
-        
-        self.results = pd.concat([self.results] + results, ignore_index=True)
+            self.results = pd.concat(results, ignore_index=True)
+            self.results.to_csv(f'src/data/{filename}.tsv', index=False, sep='\t')
         return self.results

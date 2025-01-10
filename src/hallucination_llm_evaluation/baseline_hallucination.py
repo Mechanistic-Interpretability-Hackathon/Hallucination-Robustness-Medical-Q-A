@@ -16,7 +16,7 @@ async def main(args):
     base_model_name = MODEL_NAME
     
     # Set up filenames and parameters from command line args
-    filename = f'baseline_results'
+    filename = 'baseline_results'
     fct_ds = PromptDataset(dataset_name='FCT', prompt_template_fn=lambda x: x)
     sampled_fct_ds = fct_ds[:args.n_examples]  # Sample the first n rows
 
@@ -25,17 +25,12 @@ async def main(args):
     client = AsyncGoodFireClient(
         api_key=GOODFIRE_API_KEY,
         variant=variant,
-        requests_per_minute=RATE_LIMIT,
         batch_size=args.batch_size
     )
 
-    medical_dataset_accuracy = []
     # Benchmark hallucination rate without feature steering
-    # Run generation and hallucination check
-    _ = await client.get_responses_for_dataset(sampled_fct_ds)
-
-    # Save the results to a TSV file
-    client.results.to_csv(f'src/data/{filename}.tsv', index=False, sep='\t')
+    # Run generation and hallucination check, and save results
+    _ = await client.get_responses_for_dataset(sampled_fct_ds, filename=filename)
 
     # Save 'cleaned out' version of the dataset
     results_cleaned = client.results.dropna(subset=['response', 'hallucinated'])
@@ -45,7 +40,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run hallucination analysis with feature steering.')
     parser.add_argument('--n_examples', type=int, default=200,
                       help='Number of examples to process for the hallucination rate calculation.')
-    parser.add_argument('--batch_size', type=int, default=10,
+    parser.add_argument('--batch_size', type=int, default=RATE_LIMIT,
                       help='Number of examples to process concurrently in each batch.')
 
     args = parser.parse_args()
