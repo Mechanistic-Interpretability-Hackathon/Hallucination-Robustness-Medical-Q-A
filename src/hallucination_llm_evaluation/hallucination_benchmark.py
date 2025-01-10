@@ -23,7 +23,7 @@ load_dotenv()
 GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')
 RATE_LIMIT = 100
 FEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'
-MODEL_NAME = "meta-llama/Llama-3.3-70B-Instruct"
+MODEL_NAME = "meta-llama/Llama-3.1-8B-Instruct"b
 
 class AsyncRateLimiter:
     """Async rate limiter using a semaphore and sliding window"""
