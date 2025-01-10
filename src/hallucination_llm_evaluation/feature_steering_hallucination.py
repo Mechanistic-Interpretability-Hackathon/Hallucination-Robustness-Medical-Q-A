@@ -71,7 +71,7 @@ async def main(args):
             # Benchmark hallucination rate
             client.set_feature_activation(selected_feature, activation_value)
             # Run generation and hallucination check
-            _ = await client.get_responses_for_dataset(sampled_fct_ds)
+            _ = await client.get_responses_for_dataset(sampled_fct_ds, filename=filename)
 
             # Benchmark general medical capabilities
             evaluator = AsyncMedicalLLMEvaluator(client.client, client.variant)
@@ -81,9 +81,6 @@ async def main(args):
                 subject_name=None                # optionally filter by subject
             )
             medical_dataset_accuracy.append(accuracy)
-
-            # Save the results to a TSV file
-            client.results.to_csv(f'src/data/{filename}.tsv', index=False, sep='\t')
 
         # Save 'cleaned out' version of the dataset
         results_cleaned = client.results.dropna(subset=['response', 'hallucinated'])
