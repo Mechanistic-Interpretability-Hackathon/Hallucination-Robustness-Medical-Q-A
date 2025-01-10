@@ -106,14 +106,16 @@ def build_medical_dataset():
     # Define entity types and their properties to query
     # Focus on properties that typically have single values
     queries = [
+        # ('Q12136', 'P828', 'disease', 'is caused by'),  # Doesn't work well
         ('Q12136', 'P61', 'disease', 'was first identified by'),
         ('Q12136', 'P291', 'disease', 'originated in'),
-        ('Q12136', 'P828', 'disease', 'is caused by'),
         ('Q12136', 'P2293', 'disease', 'is caused by a mutation in the gene named'),
+        ('Q12136', 'P927', 'disease', ' is located (anatomically) in the'),
         ('Q12140', 'P2275', 'medication', 'has an active ingredient with the name of'),
         ('Q12140', 'P2175', 'medication', 'is used to treat'),
+        ('Q12140', 'P274', 'medication', ", it's chemical formula is"),
+        ('Q12136', 'P780', 'disease', ', its main symptom is')
     ]
-    
     all_templates = []
     
     for entity_type, property_id, type_name, relation in tqdm(queries):
