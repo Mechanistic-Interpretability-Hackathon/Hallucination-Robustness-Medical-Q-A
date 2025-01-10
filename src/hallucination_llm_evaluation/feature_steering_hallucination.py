@@ -7,14 +7,12 @@ import goodfire
 from src.hallucination_llm_evaluation.utils import load_features
 from src.medhalt.medhalt.models.utils import PromptDataset
 from src.med_llm_evaluation.medical_evaluator import AsyncMedicalLLMEvaluator
-from src.hallucination_llm_evaluation.hallucination_benchmark import AsyncGoodFireClient
+from src.hallucination_llm_evaluation.hallucination_benchmark import AsyncGoodFireClient, RATE_LIMIT, MODEL_NAME
 from dotenv import load_dotenv
 load_dotenv()
 
 GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')
-RATE_LIMIT = 99
-FEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'
-MODEL_NAME = "meta-llama/Llama-3.3-70B-Instruct"
+FEATURES_PATH = 'src/data/best_features_combo.json'
 
 def get_hallucination_rate(df: pd.DataFrame):
     """Calculate the hallucination rate for the results dataframe."""
@@ -61,7 +59,6 @@ async def main(args):
     client = AsyncGoodFireClient(
         api_key=GOODFIRE_API_KEY,
         variant=variant,
-        requests_per_minute=RATE_LIMIT,
         batch_size=args.batch_size
     )
 
@@ -71,19 +68,16 @@ async def main(args):
             # Benchmark hallucination rate
             client.set_feature_activation(selected_feature, activation_value)
             # Run generation and hallucination check
-            _ = await client.get_responses_for_dataset(sampled_fct_ds)
+            _ = await client.get_responses_for_dataset(sampled_fct_ds, filename=filename)
 
             # Benchmark general medical capabilities
-            evaluator = AsyncMedicalLLMEvaluator(client.client, client.variant)
+            evaluator = AsyncMedicalLLMEvaluator(client.client, client.variant, batch_size=RATE_LIMIT)
             accuracy, _, _, _ = await evaluator.run_evaluation(
                 k=args.n_capabilities_examples,  # number of samples
                 random_seed=42,                  # for reproducibility
                 subject_name=None                # optionally filter by subject
             )
             medical_dataset_accuracy.append(accuracy)
-
-            # Save the results to a TSV file
-            client.results.to_csv(f'src/data/{filename}.tsv', index=False, sep='\t')
 
         # Save 'cleaned out' version of the dataset
         results_cleaned = client.results.dropna(subset=['response', 'hallucinated'])
