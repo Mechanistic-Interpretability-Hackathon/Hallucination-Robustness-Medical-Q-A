@@ -62,7 +62,7 @@ def create_templates(results: List[Dict], entity_type_name: str, relation_name: 
                 'entity_name': entity_name,
                 'relation': relation_name,
                 'template': f"The {entity_type_name} {entity_name} {relation_name} ",
-                'correct_answer': attribute
+                'missing_attribute': attribute
             }
             templates.append(template)
         except KeyError as e:
@@ -130,7 +130,7 @@ def build_medical_dataset():
     df = df.drop_duplicates(subset=['template'])
     
     # Filter out templates with long answers
-    df = df[df['correct_answer'].str.split().str.len() <= 3]
+    df = df[df['missing_attribute'].str.split().str.len() <= 3]
     
     return df
 
@@ -183,4 +183,4 @@ if __name__ == "__main__":
     dataset.to_csv('entity_recognition_dataset.csv', index=False)
     print(f"\nDataset created with {len(dataset)} templates")
     print("\nSample templates:")
-    print(dataset[['template', 'correct_answer']].head())
+    print(dataset[['template', 'missing_attribute']].head())

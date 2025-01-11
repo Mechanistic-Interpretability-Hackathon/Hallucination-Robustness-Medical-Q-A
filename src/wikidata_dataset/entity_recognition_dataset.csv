@@ -1,4 +1,4 @@
-entity_type,entity_name,relation,template,correct_answer
+entity_type,entity_name,relation,template,missing_attribute
 disease,Legg–Calvé–Perthes disease,was first identified by,The disease Legg–Calvé–Perthes disease was first identified by ,Karel Maydl
 disease,arch of circle,was first identified by,The disease arch of circle was first identified by ,Jean-Martin Charcot
 disease,Wiskott-Aldrich syndrome,was first identified by,The disease Wiskott-Aldrich syndrome was first identified by ,Alfred Wiskott
