@@ -1,21 +1,27 @@
 {
     "features": [
         {
-            "uuid": "cdf83bc589204999b945793ddf707f25",
-            "label": "Discussions of allergies, sensitivities and their effects on susceptible individuals",
-            "index_in_sae": 1192,
+            "uuid": "21354af2b25540fa82106c47137421eb",
+            "label": "Patient demographic introductions in clinical notes",
+            "index_in_sae": 33076,
             "max_activation_strength": 1
         },
         {
-            "uuid": "fc73523976c94410a1aeed34a0d6dff3",
-            "label": "Fever and elevated body temperature in medical contexts",
-            "index_in_sae": 47738,
+            "uuid": "0618b1740c0a4e8eba480c15a9bb192c",
+            "label": "Medical descriptions of eye conditions and ophthalmic treatments",
+            "index_in_sae": 11816,
             "max_activation_strength": 1
         },
         {
-            "uuid": "7bed849d6e5b437d9929110646d74886",
-            "label": "Medical treatment recommendations and follow-up instructions in clinical notes",
-            "index_in_sae": 47333,
+            "uuid": "156f3146ab3743d08d17d3d18ea2faf9",
+            "label": "Medical report negation of concerning findings",
+            "index_in_sae": 7527,
+            "max_activation_strength": 1
+        },
+        {
+            "uuid": "e4c568833ee74835981914e313ba8211",
+            "label": "Public health messaging promoting vaccine safety and uptake",
+            "index_in_sae": 41758,
             "max_activation_strength": 1
         }
     ]

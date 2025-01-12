@@ -1,21 +1,33 @@
 {
     "features": [
         {
-            "uuid": "307164e3436a4eadb46fe3202e94876a",
-            "label": "Medical diagnostic relationships between diseases and symptoms",
-            "index_in_sae": 13510,
+            "uuid": "42718896c2d843b09b6cf4b4a1b58f58",
+            "label": "Neural innervation and control in medical contexts",
+            "index_in_sae": 41004,
             "max_activation_strength": 1
         },
         {
-            "uuid": "adc6580381b04d0ca5bd0f056482c265",
-            "label": "The assistant is listing multiple medical diagnoses or conditions",
-            "index_in_sae": 61255,
+            "uuid": "21354af2b25540fa82106c47137421eb",
+            "label": "Patient demographic introductions in clinical notes",
+            "index_in_sae": 33076,
             "max_activation_strength": 1
         },
         {
             "uuid": "f34a6deeaad2463aa3c8c93bf55b099f",
             "label": "Medical case narrative flow and symptom progression documentation",
             "index_in_sae": 31230,
+            "max_activation_strength": 1
+        },
+        {
+            "uuid": "d821263c39fa464f838800405b7f41a4",
+            "label": "Medical symptom descriptions and disease progression patterns",
+            "index_in_sae": 31744,
+            "max_activation_strength": 1
+        },
+        {
+            "uuid": "97dd0c02c1074ce883a8ec27d483bad7",
+            "label": "Medical report terminology and structural patterns",
+            "index_in_sae": 47764,
             "max_activation_strength": 1
         }
     ]
