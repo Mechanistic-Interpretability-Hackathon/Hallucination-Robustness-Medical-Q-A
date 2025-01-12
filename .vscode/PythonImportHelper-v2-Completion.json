@@ -560,37 +560,28 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "json",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "json",
         "description": "json",
         "detail": "json",
-        "documentation": {}
-    },
-    {
-        "label": "sys,",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sys.",
-        "description": "sys.",
-        "detail": "sys.",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -974,33 +965,6 @@
         "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "peekOfCode": "MODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\nclass AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = requests_per_minute\n        self.lock = asyncio.Lock()\n    async def acquire(self):",
         "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
-        "documentation": {}
-    },
-    {
-        "label": "save_features",
-        "kind": 2,
-        "importPath": "src.hallucination_llm_evaluation.utils",
-        "description": "src.hallucination_llm_evaluation.utils",
-        "peekOfCode": "def save_features(features: goodfire.FeatureGroup, json_path):\n    features_data = features.json()\n    with open(json_path, 'w') as f:\n        json.dump(features_data, f, indent=4)\ndef load_features(json_path) -> goodfire.FeatureGroup:\n    with open(json_path, 'r') as f:\n        features_data = json.load(f)\n        loaded_features = goodfire.FeatureGroup.from_json(features_data)\n    return loaded_features\ndef process_jsonl_file(file_path):",
-        "detail": "src.hallucination_llm_evaluation.utils",
-        "documentation": {}
-    },
-    {
-        "label": "load_features",
-        "kind": 2,
-        "importPath": "src.hallucination_llm_evaluation.utils",
-        "description": "src.hallucination_llm_evaluation.utils",
-        "peekOfCode": "def load_features(json_path) -> goodfire.FeatureGroup:\n    with open(json_path, 'r') as f:\n        features_data = json.load(f)\n        loaded_features = goodfire.FeatureGroup.from_json(features_data)\n    return loaded_features\ndef process_jsonl_file(file_path):\n    with open(file_path) as f:\n        data = f.readlines()\n        data = [json.loads(line) for line in data]\n    df = pd.DataFrame(data)",
-        "detail": "src.hallucination_llm_evaluation.utils",
-        "documentation": {}
-    },
-    {
-        "label": "process_jsonl_file",
-        "kind": 2,
-        "importPath": "src.hallucination_llm_evaluation.utils",
-        "description": "src.hallucination_llm_evaluation.utils",
-        "peekOfCode": "def process_jsonl_file(file_path):\n    with open(file_path) as f:\n        data = f.readlines()\n        data = [json.loads(line) for line in data]\n    df = pd.DataFrame(data)\n    return df",
-        "detail": "src.hallucination_llm_evaluation.utils",
         "documentation": {}
     },
     {
