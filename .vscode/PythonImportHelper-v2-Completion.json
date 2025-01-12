@@ -234,6 +234,54 @@
         "documentation": {}
     },
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "numpy",
         "kind": 6,
         "isExtraImport": true,
@@ -490,11 +538,43 @@
         "documentation": {}
     },
     {
+        "label": "RATE_LIMIT",
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "MODEL_NAME",
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "isExtraImport": true,
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
         "label": "tqdm",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "tqdm",
         "description": "tqdm",
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
         "detail": "tqdm",
         "documentation": {}
     },
@@ -560,6 +640,23 @@
         "documentation": {}
     },
     {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -598,15 +695,6 @@
         "description": "datasets",
         "isExtraImport": true,
         "detail": "datasets",
-        "documentation": {}
-    },
-    {
-        "label": "logging",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "logging",
-        "description": "logging",
-        "detail": "logging",
         "documentation": {}
     },
     {
@@ -712,6 +800,15 @@
         "description": "concurrent.futures",
         "isExtraImport": true,
         "detail": "concurrent.futures",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
         "documentation": {}
     },
     {
@@ -882,16 +979,7 @@
         "kind": 5,
         "importPath": "src.hallucination_llm_evaluation.feature_steering_hallucination",
         "description": "src.hallucination_llm_evaluation.feature_steering_hallucination",
-        "peekOfCode": "GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')\nRATE_LIMIT = 99\nFEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\ndef get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]",
-        "detail": "src.hallucination_llm_evaluation.feature_steering_hallucination",
-        "documentation": {}
-    },
-    {
-        "label": "RATE_LIMIT",
-        "kind": 5,
-        "importPath": "src.hallucination_llm_evaluation.feature_steering_hallucination",
-        "description": "src.hallucination_llm_evaluation.feature_steering_hallucination",
-        "peekOfCode": "RATE_LIMIT = 99\nFEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\ndef get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())",
+        "peekOfCode": "GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')\nFEATURES_PATH = 'src/data/best_features_combo.json'\ndef get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate",
         "detail": "src.hallucination_llm_evaluation.feature_steering_hallucination",
         "documentation": {}
     },
@@ -900,16 +988,7 @@
         "kind": 5,
         "importPath": "src.hallucination_llm_evaluation.feature_steering_hallucination",
         "description": "src.hallucination_llm_evaluation.feature_steering_hallucination",
-        "peekOfCode": "FEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\ndef get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate",
-        "detail": "src.hallucination_llm_evaluation.feature_steering_hallucination",
-        "documentation": {}
-    },
-    {
-        "label": "MODEL_NAME",
-        "kind": 5,
-        "importPath": "src.hallucination_llm_evaluation.feature_steering_hallucination",
-        "description": "src.hallucination_llm_evaluation.feature_steering_hallucination",
-        "peekOfCode": "MODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\ndef get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate\n    hallucination_rates_df = pd.DataFrame(hallucination_rates.items(), columns=['feature_activation', 'hallucination_rate'])",
+        "peekOfCode": "FEATURES_PATH = 'src/data/best_features_combo.json'\ndef get_hallucination_rate(df: pd.DataFrame):\n    \"\"\"Calculate the hallucination rate for the results dataframe.\"\"\"\n    # Plot the hallucination rate for each feature activation\n    hallucination_rates = {}\n    for feature_activation in df['feature_activation'].unique():\n        feature_activation_df = df[df['feature_activation'] == feature_activation]\n        hallucination_rate = len(feature_activation_df[feature_activation_df['hallucinated'] == True]) / len(feature_activation_df['hallucinated'].dropna())\n        hallucination_rates[feature_activation] = hallucination_rate\n    hallucination_rates_df = pd.DataFrame(hallucination_rates.items(), columns=['feature_activation', 'hallucination_rate'])",
         "detail": "src.hallucination_llm_evaluation.feature_steering_hallucination",
         "documentation": {}
     },
@@ -918,7 +997,7 @@
         "kind": 6,
         "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
-        "peekOfCode": "class AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = requests_per_minute\n        self.lock = asyncio.Lock()\n    async def acquire(self):\n        \"\"\"Acquire rate limit token\"\"\"",
+        "peekOfCode": "class AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self):\n        self.semaphore = asyncio.Semaphore(RATE_LIMIT)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = RATE_LIMIT\n        self.lock = asyncio.Lock()\n        self.logger = logging.getLogger('async_processor.rate_limiter')\n    async def acquire(self):",
         "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "documentation": {}
     },
@@ -927,7 +1006,7 @@
         "kind": 6,
         "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
-        "peekOfCode": "class AsyncGoodFireClient:\n    def __init__(self, api_key: str, variant: goodfire.Variant, requests_per_minute=100, batch_size=10):\n        self.client = goodfire.AsyncClient(api_key)\n        self.variant = variant\n        self.rate_limiter = AsyncRateLimiter(requests_per_minute)\n        self.batch_size = batch_size\n        self.feature_activation = 0\n        # Initialize DataFrame with correct columns\n        self.results = pd.DataFrame(columns=[\n            'id', 'feature_activation', 'prompt', 'question', 'options',",
+        "peekOfCode": "class AsyncGoodFireClient:\n    def __init__(self, api_key: str, variant: goodfire.Variant, batch_size=100):\n        self.client = goodfire.AsyncClient(api_key)\n        self.variant = variant\n        self.rate_limiter = AsyncRateLimiter()\n        self.batch_size = batch_size\n        self.feature_activation = 0\n        self.logger = logging.getLogger('async_processor.goodfire_client')\n        self.results = pd.DataFrame(columns=[\n            'id', 'feature_activation', 'prompt', 'question', 'options',",
         "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "documentation": {}
     },
@@ -936,7 +1015,7 @@
         "kind": 5,
         "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
-        "peekOfCode": "GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')\nRATE_LIMIT = 99\nFEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\nclass AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window",
+        "peekOfCode": "GOODFIRE_API_KEY = os.getenv('GOODFIRE_API_KEY')\nRATE_LIMIT = 100\nFEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nLOGS_FOLDER_PATH = 'src/hallucination_llm_evaluation/logs'\nMODEL_NAME = \"meta-llama/Meta-Llama-3.1-8B-Instruct\"\n# Configure logging\nlogging.basicConfig(\n    level=logging.INFO,\n    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n    handlers=[",
         "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "documentation": {}
     },
@@ -945,7 +1024,7 @@
         "kind": 5,
         "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
-        "peekOfCode": "RATE_LIMIT = 99\nFEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\nclass AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = requests_per_minute",
+        "peekOfCode": "RATE_LIMIT = 100\nFEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nLOGS_FOLDER_PATH = 'src/hallucination_llm_evaluation/logs'\nMODEL_NAME = \"meta-llama/Meta-Llama-3.1-8B-Instruct\"\n# Configure logging\nlogging.basicConfig(\n    level=logging.INFO,\n    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n    handlers=[\n        logging.FileHandler(f'{LOGS_FOLDER_PATH}/async_performance_{datetime.now().strftime(\"%Y%m%d_%H%M%S\")}.log'),",
         "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "documentation": {}
     },
@@ -954,7 +1033,16 @@
         "kind": 5,
         "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
-        "peekOfCode": "FEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nMODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\nclass AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = requests_per_minute\n        self.lock = asyncio.Lock()",
+        "peekOfCode": "FEATURES_PATH = 'src/hallucination_llm_evaluation/relevant_features.json'\nLOGS_FOLDER_PATH = 'src/hallucination_llm_evaluation/logs'\nMODEL_NAME = \"meta-llama/Meta-Llama-3.1-8B-Instruct\"\n# Configure logging\nlogging.basicConfig(\n    level=logging.INFO,\n    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n    handlers=[\n        logging.FileHandler(f'{LOGS_FOLDER_PATH}/async_performance_{datetime.now().strftime(\"%Y%m%d_%H%M%S\")}.log'),\n        logging.StreamHandler()",
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "LOGS_FOLDER_PATH",
+        "kind": 5,
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "peekOfCode": "LOGS_FOLDER_PATH = 'src/hallucination_llm_evaluation/logs'\nMODEL_NAME = \"meta-llama/Meta-Llama-3.1-8B-Instruct\"\n# Configure logging\nlogging.basicConfig(\n    level=logging.INFO,\n    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n    handlers=[\n        logging.FileHandler(f'{LOGS_FOLDER_PATH}/async_performance_{datetime.now().strftime(\"%Y%m%d_%H%M%S\")}.log'),\n        logging.StreamHandler()\n    ]",
         "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "documentation": {}
     },
@@ -963,7 +1051,16 @@
         "kind": 5,
         "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
-        "peekOfCode": "MODEL_NAME = \"meta-llama/Llama-3.3-70B-Instruct\"\nclass AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self, requests_per_minute: int):\n        self.semaphore = asyncio.Semaphore(requests_per_minute)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = requests_per_minute\n        self.lock = asyncio.Lock()\n    async def acquire(self):",
+        "peekOfCode": "MODEL_NAME = \"meta-llama/Meta-Llama-3.1-8B-Instruct\"\n# Configure logging\nlogging.basicConfig(\n    level=logging.INFO,\n    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n    handlers=[\n        logging.FileHandler(f'{LOGS_FOLDER_PATH}/async_performance_{datetime.now().strftime(\"%Y%m%d_%H%M%S\")}.log'),\n        logging.StreamHandler()\n    ]\n)",
+        "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "description": "src.hallucination_llm_evaluation.hallucination_benchmark",
+        "peekOfCode": "logger = logging.getLogger('async_processor')\nclass AsyncRateLimiter:\n    \"\"\"Async rate limiter using a semaphore and sliding window\"\"\"\n    def __init__(self):\n        self.semaphore = asyncio.Semaphore(RATE_LIMIT)\n        self.request_times = []\n        self.window_size = 60  # 1 minute window\n        self.requests_per_minute = RATE_LIMIT\n        self.lock = asyncio.Lock()\n        self.logger = logging.getLogger('async_processor.rate_limiter')",
         "detail": "src.hallucination_llm_evaluation.hallucination_benchmark",
         "documentation": {}
     },
@@ -1109,6 +1206,69 @@
         "description": "src.utils.utilities",
         "peekOfCode": "activated_features = [\"Feature A\", \"Feature B\", \"Feature C\"]",
         "detail": "src.utils.utilities",
+        "documentation": {}
+    },
+    {
+        "label": "create_sparql_query",
+        "kind": 2,
+        "importPath": "src.wikidata_dataset.main",
+        "description": "src.wikidata_dataset.main",
+        "peekOfCode": "def create_sparql_query(entity_type: str, property_id: str) -> str:\n    \"\"\"\n    Create a SPARQL query for Wikidata to get entities and their single-value properties.\n    Added GROUP_CONCAT and SAMPLE to handle multiple values but select one.\n    \"\"\"\n    return f\"\"\"\n    SELECT DISTINCT ?entity ?entityLabel (SAMPLE(?value) as ?singleValue) (SAMPLE(?valueLabel) as ?singleValueLabel)\n    WHERE {{\n      ?entity wdt:P31/wdt:P279* wd:{entity_type};\n              wdt:{property_id} ?value.",
+        "detail": "src.wikidata_dataset.main",
+        "documentation": {}
+    },
+    {
+        "label": "query_wikidata",
+        "kind": 2,
+        "importPath": "src.wikidata_dataset.main",
+        "description": "src.wikidata_dataset.main",
+        "peekOfCode": "def query_wikidata(query: str) -> List[Dict]:\n    \"\"\"\n    Query Wikidata using their SPARQL endpoint.\n    Includes rate limiting and error handling.\n    \"\"\"\n    endpoint_url = \"https://query.wikidata.org/sparql\"\n    try:\n        response = requests.get(endpoint_url, \n                              params={'query': query, 'format': 'json'},\n                              headers={'User-Agent': 'Medical Dataset Builder 1.0'})",
+        "detail": "src.wikidata_dataset.main",
+        "documentation": {}
+    },
+    {
+        "label": "create_templates",
+        "kind": 2,
+        "importPath": "src.wikidata_dataset.main",
+        "description": "src.wikidata_dataset.main",
+        "peekOfCode": "def create_templates(results: List[Dict], entity_type_name: str, relation_name: str) -> List[Dict]:\n    \"\"\"\n    Convert Wikidata results into natural language templates.\n    Only includes entries with single-value answers.\n    \"\"\"\n    templates = []\n    for result in results:\n        try:\n            entity_name = result['entityLabel']['value']\n            attribute = result['singleValueLabel']['value']",
+        "detail": "src.wikidata_dataset.main",
+        "documentation": {}
+    },
+    {
+        "label": "test_single_entity",
+        "kind": 2,
+        "importPath": "src.wikidata_dataset.main",
+        "description": "src.wikidata_dataset.main",
+        "peekOfCode": "def test_single_entity(entity_name: str, entity_type: str = 'Q12136', property_id: str = 'P61') -> None:\n    \"\"\"\n    Test the retrieval for a single entity with single-value properties\n    \"\"\"\n    query = f\"\"\"\n    SELECT DISTINCT ?entity ?entityLabel ?value ?valueLabel\n    WHERE {{\n      ?entity wdt:P31/wdt:P279* wd:{entity_type};\n              rdfs:label \"{entity_name}\"@en;\n              wdt:{property_id} ?value.",
+        "detail": "src.wikidata_dataset.main",
+        "documentation": {}
+    },
+    {
+        "label": "build_medical_dataset",
+        "kind": 2,
+        "importPath": "src.wikidata_dataset.main",
+        "description": "src.wikidata_dataset.main",
+        "peekOfCode": "def build_medical_dataset():\n    \"\"\"\n    Build a dataset of medical entities and their single-value relationships.\n    \"\"\"\n    # Define entity types and their properties to query\n    # Focus on properties that typically have single values\n    queries = [\n        # ('Q12136', 'P828', 'disease', 'is caused by'),  # Doesn't work well\n        ('Q12136', 'P61', 'disease', 'was first identified by'),\n        ('Q12136', 'P291', 'disease', 'originated in'),",
+        "detail": "src.wikidata_dataset.main",
+        "documentation": {}
+    },
+    {
+        "label": "test_medical_property",
+        "kind": 2,
+        "importPath": "src.wikidata_dataset.main",
+        "description": "src.wikidata_dataset.main",
+        "peekOfCode": "def test_medical_property(property_id: str, example_entities: List[str], entity_type: str = 'Q12136') -> None:\n    \"\"\"\n    Test a medical property with multiple example entities to see response patterns\n    \"\"\"\n    for entity in example_entities:\n        query = f\"\"\"\n        SELECT DISTINCT ?entity ?entityLabel ?value ?valueLabel\n        WHERE {{\n          ?entity wdt:P31/wdt:P279* wd:{entity_type};\n                  rdfs:label \"{entity}\"@en;",
+        "detail": "src.wikidata_dataset.main",
+        "documentation": {}
+    },
+    {
+        "label": "test_medical_property",
+        "kind": 2,
+        "importPath": "src.wikidata_dataset.testing",
+        "description": "src.wikidata_dataset.testing",
+        "peekOfCode": "def test_medical_property(property_id: str, example_entities: List[str], entity_type: str = 'Q12136') -> None:\n    \"\"\"\n    Test a medical property with multiple example entities to see response patterns\n    \"\"\"\n    for entity in example_entities:\n        query = f\"\"\"\n        SELECT DISTINCT ?entity ?entityLabel ?value ?valueLabel\n        WHERE {{\n          ?entity wdt:P31/wdt:P279* wd:{entity_type};\n                  rdfs:label \"{entity}\"@en;",
+        "detail": "src.wikidata_dataset.testing",
         "documentation": {}
     },
     {
