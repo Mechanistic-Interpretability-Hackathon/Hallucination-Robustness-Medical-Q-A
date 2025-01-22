@@ -87,6 +87,7 @@ async def process_entity(
             for activation in inspector.top(k=k):
                 features.append({
                     "uuid": activation.feature.uuid,
+                    "label": activation.feature.label,
                     "activation": activation.activation,
                 })
 
@@ -146,7 +147,7 @@ async def get_feature_activations_v2(
                 feature_activations.append(result)
                 # Update feature library
                 for feature in result["entity_features"]:
-                    feature_library.add((feature["uuid"], None))  # Adjust if you need labels
+                    feature_library.add((feature["uuid"], feature["label"]))  # Adjust if you need labels
 
     logger.info(f"Processed {len(feature_activations)} entities successfully")
     return feature_activations, feature_library
@@ -159,7 +160,7 @@ async def main():
 
     client_gf = goodfire.AsyncClient(os.getenv("GOODFIRE_API_KEY"))
     variant = goodfire.Variant("meta-llama/Meta-Llama-3.1-8B-Instruct")
-    filter = "unknown"
+    filter = "known"
 
     feature_activations_known_1Q, feature_library_known_1Q = await get_feature_activations_v2(
         client_gf,
@@ -171,10 +172,10 @@ async def main():
     )
 
     # Pickle results
-    with open(f"feature_activations_{filter}_1Q.pkl", "wb") as f:
+    with open(f"results/feature_activations_{filter}_1Q.pkl", "wb") as f:
         pickle.dump(feature_activations_known_1Q, f)
 
-    with open(f"feature_library_{filter}_1Q.pkl", "wb") as f:
+    with open(f"results/feature_library_{filter}_1Q.pkl", "wb") as f:
         pickle.dump(feature_library_known_1Q, f)
 
 if __name__ == "__main__":
