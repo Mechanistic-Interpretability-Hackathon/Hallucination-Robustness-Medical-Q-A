@@ -21,7 +21,7 @@ def create_sparql_query(entity_type: str, property_id: str) -> str:
       }}
     }}
     GROUP BY ?entity ?entityLabel
-    LIMIT 1000
+    LIMIT 50000
     """
 
 def query_wikidata(query: str) -> List[Dict]:
@@ -180,7 +180,7 @@ if __name__ == "__main__":
     dataset = build_medical_dataset()
 
     # Save to CSV
-    dataset.to_csv('entity_recognition_dataset.csv', index=False)
+    dataset.to_csv('entity_recognition_dataset_2.csv', index=False)
     print(f"\nDataset created with {len(dataset)} templates")
     print("\nSample templates:")
     print(dataset[['template', 'missing_attribute']].head())
