@@ -155,9 +155,9 @@ async def get_feature_activations_v2(
 async def main():
     # Load data
     queries_for_feature_extraction = pd.read_parquet(
-        "./queries_for_feature_extraction.parquet"
+        "queries_for_feature_extraction.parquet"
     )
-
+    # 
     client_gf = goodfire.AsyncClient(os.getenv("GOODFIRE_API_KEY"))
     variant = goodfire.Variant("meta-llama/Meta-Llama-3.1-8B-Instruct")
     filter = "known"
@@ -172,10 +172,11 @@ async def main():
     )
 
     # Pickle results
-    with open(f"results/feature_activations_{filter}_1Q.pkl", "wb") as f:
+    
+    with open(f"feature_activations_{filter}_1Q.pkl", "wb") as f:
         pickle.dump(feature_activations_known_1Q, f)
 
-    with open(f"results/feature_library_{filter}_1Q.pkl", "wb") as f:
+    with open(f"feature_library_{filter}_1Q.pkl", "wb") as f:
         pickle.dump(feature_library_known_1Q, f)
 
 if __name__ == "__main__":
