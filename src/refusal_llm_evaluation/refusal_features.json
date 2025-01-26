@@ -1,0 +1,22 @@
+{
+    "features": [
+        {
+            "uuid": "c5c0f5a66b764d67aa20d571d7d505ae",
+            "label": "The assistant needs clarification",
+            "index_in_sae": 6189,
+            "max_activation_strength": 1
+        },
+        {
+            "uuid": "2501aec14a3743928f3bbedbf768307d",
+            "label": "The assistant needs clarification or lacks sufficient information",
+            "index_in_sae": 47324,
+            "max_activation_strength": 1
+        },
+        {
+            "uuid": "475a1ebc14324f32a8f8f3398de51bec",
+            "label": "Nonsensical or potentially harmful input requiring clarification or rejection",
+            "index_in_sae": 49164,
+            "max_activation_strength": 1
+        }
+    ]
+}
